@@ -1,0 +1,109 @@
+<!-- Title/main banner
+<section class="hero center">
+  <div class="hero-body center">
+    <div class="container center">
+      <h1 class="is-size-1">Job Search Assistant</h1>
+      <br>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Three main columns -->
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="notification one">
+          <h1 class="is-size-4">Only positions you're actually interested in</h1>
+          <p class="is-size-6 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptatum! Dolorum quisquam aliquam suscipit?
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="notification two">
+          <h1 class="is-size-4">Keep track of your interviews</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptatum! Dolorum quisquam aliquam suscipit?
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="notification three">
+          <h1 class="is-size-4">Share your experience with the community</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptatum! </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>
+<section class="section center">
+  <button class="button" id="show-login">Login</button>
+  <button class="button" id="show-regist">Register</button>
+</section>
+
+<!-- Login form -->
+<div class="log-reg-form">
+  <div class="field " id="login-form">
+    <form (submit)="loginSubmit()">
+      <label class="label">Email:</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="jane.smith@gmail.com" name="email" [(ngModel)]="userCredentials.email">
+      </div>
+      <label class="label">Password:</label>
+      <div class="control">
+        <input type="password" class="input" name="password" [(ngModel)]="userCredentials.password">
+        <br>
+        <span *ngIf="loginError">{{ loginError }}</span>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <p>
+            <button class="button is-link">Submit</button>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Registration form -->
+  <div class="field " id="regist-form">
+    <form (submit)="registrationSubmit()">
+      <label class="label">First Name:</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="Jane" name="firstName" [(ngModel)]="newUser.firstName">
+        <br>
+        <span *ngIf="firstNameError">{{ firstNameError }}</span>
+      </div>
+      <label class="label">Last Name:</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="Smith" name="lastName" [(ngModel)]="newUser.lastName">
+        <br>
+        <span *ngIf="lastNameError">{{ lastNameError }}</span>
+      </div>
+      <label class="label">Email:</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="jane.smith@gmail.com" name="email" [(ngModel)]="newUser.email">
+        <br>
+        <span *ngIf="emailError">{{ emailError }}</span>
+      </div>
+      <label class="label">Password:</label>
+      <div class="control">
+        <input type="password" class="input" name="password" [(ngModel)]="newUser.password">
+        <br>
+        <span *ngIf="pwError">{{ pwError }}</span>
+      </div>
+      <label class="label">Password Confirmation:</label>
+      <div class="control">
+        <input type="password" class="input" name="passwordConfirm">
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <p>
+            <input type="submit" class="button is-link" value="Submit">
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
