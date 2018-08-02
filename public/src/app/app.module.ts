@@ -24,4 +24,5 @@ import { JobsComponent } from './jobs/jobs.component';
   providers: [HttpService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

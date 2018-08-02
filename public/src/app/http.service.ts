@@ -17,4 +17,14 @@ export class HttpService {
   loginUser(user: any) {
     return this._http.post('/login', user);
   }
+
+  // Create new job posting
+  createJob(job: any) {
+    return this._http.post('/jobs', job);
+  }
+
+  // Retrieve all jobs
+  getJobs() {
+    return this._http.get('/jobs');
+  }
 }

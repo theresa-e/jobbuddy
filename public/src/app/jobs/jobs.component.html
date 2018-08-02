@@ -1,10 +1,9 @@
-<!-- begin navbar -->
+<!-- navbar -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="index.html">
       <p>JobBuddy</p>
     </a>
-
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -18,91 +17,68 @@
     <a href="#" class="navbar-item">Resources</a>
   </div>
 </nav>
-
-    <!-- begin main content -->
-    <section class="section">
-        <div class="container">
-            <div class="column">
-                <article class="media notification">
-                    <figure class="media-left">
-                        <span class="icon">
-                            <a href="#">
-                                <i class="fab  fa-2x fas fa-plus"></i>
-                            </a>
-                        </span>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <h1 class="title is-size-4">Front End Developer needed @ AnotherStartup</h1>
-                            <p class="is-size-6">Perks: Tap water on tap</p>
-                            <p class="is-size-6">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo officiis aliquam expedita facilis corporis provident autem
-                                porro quas, optio aperiam cum officia fugit facere assumenda maxime, reprehenderit aut. Iste,
-                                quaerat.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-                <article class="media notification">
-                    <figure class="media-left">
-                        <span class="icon">
-                            <i class="fab  fa-2x fas fa-plus"></i>
-                        </span>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <h1 class="title is-size-4">Java Ninjawarrior Opening @ OMG Inc.</h1>
-                            <p class="is-size-6">Perks: Office is in same plaza as an In-N-Out</p>
-                            <p class="is-size-6">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores accusantium tempora nihil ratione, eum quisquam illo commodi
-                                dignissimos fugit dicta blanditiis soluta tenetur earum facere natus rem voluptatum iure
-                                deserunt.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-                <article class="media notification">
-                    <figure class="media-left">
-                        <span class="icon">
-                            <i class="fab  fa-2x fas fa-plus"></i>
-                        </span>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <h1 class="title is-size-4">Python dev (must know Django and flask) @ AnotherStartup</h1>
-                            <p class="is-size-6">Perks: Saturdays and Sundays off</p>
-                            <p class="is-size-6">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo officiis aliquam expedita facilis corporis provident autem
-                                porro quas, optio aperiam cum officia fugit facere assumenda maxime, reprehenderit aut. Iste,
-                                quaerat.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-                <article class="media notification">
-                    <figure class="media-left">
-                        <span class="icon">
-                            <i class="fab  fa-2x fas fa-plus"></i>
-                        </span>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <h1 class="title is-size-4">Swift Engineer @ WOW Inc.</h1>
-                            <p class="is-size-6">Perks: Close to your casa</p>
-                            <p class="is-size-6">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores accusantium tempora nihil ratione, eum quisquam illo commodi
-                                dignissimos fugit dicta blanditiis soluta tenetur earum facere natus rem voluptatum iure
-                                deserunt.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
+<!-- modal form -->
+<div class="column has-text-centered">
+  <p>See a job someone else might be interested it? Add it to the job board ✨ </p>
+  <button id="show-create-job" class="button ">Add Job</button>
+</div>
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <section class="modal-card-body">
+      <header class="modal-card-head ">
+        <p class="modal-card-title is-size-5">Add a new job</p>
+      </header>
+      <div class="field" id="dialog-form">
+        <form id="add-job-form">
+          <label for="title" class="label">Title: </label>
+          <div class="control">
+            <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
+          </div>
+          <label for="desc" class="label">Description: </label>
+          <div class="control">
+            <input type="text" class="input" name="desc" [(ngModel)]="newJob.desc">
+          </div>
+          <label for="url" class="label">Perks (optional): </label>
+          <div class="control">
+            <input type="text" class="input" name="perks" [(ngModel)]="newJob.perks">
+          </div>
+          <label for="url" class="label">URL: </label>
+          <div class="control">
+            <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
+          </div>
+          <div class="control">
+            <button class="button is-primary is-fullwidth" (click)="addJobSubmit()">Submit</button>
+          </div>
+        </form>
+        <button class="modal-close"></button>
+      </div>
     </section>
+  </div>
+</div>
+<!-- main content -->
+<section class="section">
+  <div class="container">
+    <div class="column" *ngFor="let job of allJobs">
+      <article class="media notification">
+        <figure class="media-left">
+          <span class="icon">
+            <a href="#">
+              <i class="fab  fa-2x fas fa-plus"></i>
+            </a>
+          </span>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <h1 class="title is-size-4">{{ job.title }}</h1>
+            <a href=job.url class="is-size-6">View posting!</a>
+            <p *ngIf="job.perks" class="is-size-6">Perks: {{ job.perks }}</p>
+            <p class="is-size-6">
+              {{ job.description }}
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

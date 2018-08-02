@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 require('../models/user.js');
 var User = mongoose.model('User');
+var Job = mongoose.model('Job');
 var bcrypt = require('bcryptjs');
+mongoose.Types.ObjectId
 
 module.exports = {
     // Process new user registration form 
@@ -25,7 +27,7 @@ module.exports = {
                     console.log('------ Success: New user was saved to database.');
                     res.json({
                         message: "Success",
-                        new_user: user
+                        user: user
                     })
                 }
             })
@@ -41,7 +43,7 @@ module.exports = {
             if (!user) {
                 console.log('------ Error: Could not find email in the database.');
                 res.json({
-                    message: "Error", 
+                    message: "Error",
                     error_msg: "Email and/or password is invalid."
                 })
             } else {
@@ -51,7 +53,7 @@ module.exports = {
                         console.log('------ Passwords match!');
                         res.json({
                             message: "Success",
-                            result: result
+                            user: user
                         })
                     } else {
                         console.log('------ Passwords do not match!');
@@ -60,6 +62,66 @@ module.exports = {
                             error: err
                         })
                     }
+                })
+            }
+        })
+    },
+
+    createJob: (req, res) => {
+        console.log('controller')
+        var job = new Job({
+            title: req.body.job.title,
+            description: req.body.job.desc,
+            url: req.body.job.url,
+            perks: req.body.job.perks
+        });
+        console.log('new job ----> ', job)
+        job.save((err) => {
+            if (err) {
+                console.log('------- Error: Job could not be saved.');
+                console.log(err);
+                res.json({
+                    message: "Error",
+                    error: err
+                })
+            } else {
+                User.findByIdAndUpdate({
+                    _id: req.body.userId
+                }, {
+                    $push: {
+                        posted_jobs: job
+                    }
+                }, (err, job) => {
+                    if (err) {
+                        console.log('------ Error: Could not add job.');
+                        res.json({
+                            message: "Error",
+                            error: err
+                        });
+                    } else {
+                        console.log('------ Success: Saved job!');
+                        res.json({
+                            message: "Success",
+                            job: job
+                        })
+                    }
+                })
+            }
+        })
+    },
+
+    getAllJobs: (req, res) => {
+        Job.find({}, (err, jobs) => {
+            if (err) {
+                console.log("------ Error: Could not retrieve all jobs.");
+                res.json({
+                    message: "Error",
+                    error: err
+                })
+            } else {
+                res.json({
+                    message: "Success",
+                    jobs: jobs
                 })
             }
         })

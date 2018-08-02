@@ -22,8 +22,9 @@ export class LandingComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.userCredentials = { email: "", password: ""}
-    this.newUser = { firstName: "", lastName: "", email: "", password: "" }
+    this.userCredentials = { email: "", password: ""};
+    this.newUser = { firstName: "", lastName: "", email: "", password: "" };
+    localStorage.clear()
   }
 
   registrationSubmit() {
@@ -62,6 +63,12 @@ export class LandingComponent implements OnInit {
         } else {
           this.pwError = "";
         }
+      } else {
+        // Save id in local storage and navigate them to main page.
+        console.log("------ User registered and logged in, navigating to main page.")
+        let userId = res.user._id;
+        localStorage.setItem('userId', userId)
+        this._router.navigate(['/main']);
       }
     })
   }
@@ -73,7 +80,10 @@ export class LandingComponent implements OnInit {
       if (res.message == "Error") {
         this.loginError = res.error_msg;
       } else {
-        console.log("------ User has been logged in, redirecting them to main page.")
+        // Save the user id in localstorage
+        console.log("------ User logged in, navigating to main page.")
+        let userId = res.user._id;
+        localStorage.setItem('userId', userId);
         this._router.navigate(['/main']);
       }
     })
