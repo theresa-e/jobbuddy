@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/jobs');
 
+
 var JobSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -19,6 +20,10 @@ var JobSchema = new mongoose.Schema({
     },
     perks: {
         type: String,
+    }, 
+    totalLikes: 0,
+    likes: {
+        type: [UserSchema]
     }
 })
 

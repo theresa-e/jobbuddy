@@ -6,7 +6,7 @@ JobBuddy is a solo project built using MongoDB, Angular, Express.js, Node.js, jQ
 This project is in progress. Below are user stories I'm working on implementing: 
 
 - [x] Users can login or register for an account
-- [ ] Users can post/share jobs for others to see
+- [x] Users can post/share jobs for others to see
 - [ ] Users are able to favorite/like jobs
 - [ ] Users can create new posts on the message board
 - [ ] Users can comment on existing message board posts

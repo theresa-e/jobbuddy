@@ -22,6 +22,9 @@ app.use(express.static(__dirname + '/public/dist/public'));
 /* ---------- Mongoose ---------- */
 require('./server/models/user.js')
 
+/* ---------- Socket.io ---------- */
+var io = require('socket.io').listen(server);
+
 /* ---------- Routes ---------- */
 require('./server/config/routes.js')(app)
 

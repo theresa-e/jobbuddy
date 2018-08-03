@@ -19,10 +19,10 @@ export class LandingComponent implements OnInit {
   constructor(
     private _httpService: HttpService,
     private _router: Router,
-    ) { }
+  ) { }
 
   ngOnInit() {
-    this.userCredentials = { email: "", password: ""};
+    this.userCredentials = { email: "", password: "" };
     this.newUser = { firstName: "", lastName: "", email: "", password: "" };
     localStorage.clear()
   }

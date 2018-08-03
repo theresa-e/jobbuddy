@@ -8,19 +8,21 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { HttpService } from './http.service';
 import { JobsComponent } from './jobs/jobs.component';
+import { DiscussComponent } from './discuss/discuss.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    JobsComponent
+    JobsComponent,
+    DiscussComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-  ],
+    ],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })

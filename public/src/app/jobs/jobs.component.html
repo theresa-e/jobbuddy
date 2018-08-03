@@ -1,63 +1,38 @@
-<!-- navbar -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="index.html">
-      <p>JobBuddy</p>
-    </a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <a href="dash.html" class="navbar-item">Dashboard</a>
-    <a href="discuss.html" class="navbar-item">Discuss</a>
-    <a href="#" class="navbar-item">Study Groups</a>
-    <a href="#" class="navbar-item">Resources</a>
-  </div>
-</nav>
-<!-- modal form -->
+<!-- prompt to show form -->
 <div class="column has-text-centered">
-  <p>See a job someone else might be interested it? Add it to the job board ✨ </p>
-  <button id="show-create-job" class="button ">Add Job</button>
+  <p>See a job someone else might be interested in? Add it to the job board ✨ </p>
+  <button id="show-create-job" class="button">Add Job</button>
+  <button id="cancel-create-job" class="button">Cancel</button>
 </div>
-<div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <section class="modal-card-body">
-      <header class="modal-card-head ">
-        <p class="modal-card-title is-size-5">Add a new job</p>
-      </header>
-      <div class="field" id="dialog-form">
-        <form id="add-job-form">
-          <label for="title" class="label">Title: </label>
-          <div class="control">
-            <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
-          </div>
-          <label for="desc" class="label">Description: </label>
-          <div class="control">
-            <input type="text" class="input" name="desc" [(ngModel)]="newJob.desc">
-          </div>
-          <label for="url" class="label">Perks (optional): </label>
-          <div class="control">
-            <input type="text" class="input" name="perks" [(ngModel)]="newJob.perks">
-          </div>
-          <label for="url" class="label">URL: </label>
-          <div class="control">
-            <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
-          </div>
-          <div class="control">
-            <button class="button is-primary is-fullwidth" (click)="addJobSubmit()">Submit</button>
-          </div>
-        </form>
-        <button class="modal-close"></button>
+<!-- form (hidden until triggered by user) -->
+<div class="add-job-form" id="create-job-form">
+  <p class="is-size-5">Add a new job</p>
+  <div class="field" id="dialog-form">
+    <form id="add-job-form">
+      <label for="title" class="label">Title: </label>
+      <div class="control">
+        <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
       </div>
-    </section>
+      <label for="desc" class="label">Description: </label>
+      <div class="control">
+        <input type="text" class="input" name="desc" [(ngModel)]="newJob.desc">
+      </div>
+      <label for="url" class="label">Perks (optional): </label>
+      <div class="control">
+        <input type="text" class="input" name="perks" [(ngModel)]="newJob.perks">
+      </div>
+      <label for="url" class="label">URL: </label>
+      <div class="control">
+        <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
+      </div>
+      <div class="control">
+        <button class="button is-primary is-fullwidth" (click)="addJobSubmit()" id="submit-job-form">Submit</button>
+      </div>
+    </form>
   </div>
 </div>
 <!-- main content -->
-<section class="section">
+<section class="section" id="all-jobs-main">
   <div class="container">
     <div class="column" *ngFor="let job of allJobs">
       <article class="media notification">

@@ -1,66 +1,65 @@
-    html {
-      height: 100%;
-    }
+html {
+  height: 100%;
+}
 
-    body {
-      background-color: #cfe3d9;
-      height: 1500px;
-      margin: 0;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+body {
+  background-color: #cfe3d9;
+  height: 1500px;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-    h1 {
-      font-family: "Cutive";
-      color: #2d367a;
-    }
+h1 {
+  font-family: "Cutive";
+  color: #2d367a;
+}
 
-    .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .center a {
-      padding: 5px;
-      margin: 0px 10px;
-    }
+.center a {
+  margin: 0px 10px;
+}
 
-    .title {
-      font-size: 40px;
-    }
+.title {
+  font-size: 40px;
+}
 
-    .notification {
-      height: 300px;
-    }
+.notification {
+  height: 300px;
+}
 
-    .log-reg-form {
-      width: 300px;
-      margin: auto;
-    }
+.log-reg-form {
+  width: 300px;
+  margin: auto;
+}
 
-    #login-form,
-    #regist-form {
-      display: none;
-      margin: 10px;
-    }
+#login-form,
+#regist-form {
+  display: none;
+  margin: 10px;
+}
 
-    a {
-      color: white;
-    }
+a {
+  color: white;
+}
 
-    .one {
-      background-color: #7baac9;
-    }
+.one {
+  background-color: #7baac9;
+}
 
-    .two {
-      background-color: #7babcabd;
-    }
+.two {
+  background-color: #7babcabd;
+}
 
-    .three {
-      background-color: #91baceab;
-    }
+.three {
+  background-color: #91baceab;
+}
 
-    p {
-      color: white;
-    }
+p {
+  color: white;
+}

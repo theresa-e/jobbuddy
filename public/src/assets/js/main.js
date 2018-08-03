@@ -10,16 +10,29 @@ $(document).ready(function () {
     $("#regist-form").fadeIn("slow");
   })
 
-  // show/hide modal in jobs component
-  $("#show-create-job").click(function () {
-    $(".modal").addClass("is-active");
-    console.log('howdy')
-  });
-  $(".modal-close").click(function () {
-    $(".modal").removeClass("is-active");
-  });
-  $("#add-job-form").submit(function() {
-    $(".modal").removeClass("is-active");
-  })
-})
 
+  // jobs component
+  $("#create-job-form").hide();
+  $("#cancel-create-job").hide();
+
+  $("#show-create-job").click(function () {
+    $("#create-job-form").slideToggle();
+    $("#show-create-job").hide();
+    $("#cancel-create-job").fadeIn("slow");
+    $("#all-jobs-main").fadeOut("slow");
+  });
+
+  // cancel create job form, show all jobs
+  $("#cancel-create-job").click(function () {
+    $("#create-job-form").slideToggle();
+    $("#show-create-job").show();
+    $("#all-jobs-main").slideToggle();
+    $("#cancel-create-job").hide();
+  })
+
+  // new job is added, show all jobs
+  $("#add-job-form").submit(function () {
+    $("#create-job-form").slideToggle();
+    $("#all-jobs-main").slideToggle();
+  });
+})
