@@ -1,14 +1,14 @@
 <!-- prompt to show form -->
 <div class="column has-text-centered">
   <p>See a job someone else might be interested in? Add it to the job board ✨ </p>
-  <button id="show-create-job" class="button">Add Job</button>
-  <button id="cancel-create-job" class="button">Cancel</button>
+  <button class="button">Add Job</button>
+<button class="button">Cancel</button>
 </div>
 <!-- form (hidden until triggered by user) -->
-<div class="add-job-form" id="create-job-form">
+<div class="add-job-form">
   <p class="is-size-5">Add a new job</p>
-  <div class="field" id="dialog-form">
-    <form id="add-job-form">
+  <div class="field">
+    <form id="add-job-form" (submit)="addJobSubmit()">
       <label for="title" class="label">Title: </label>
       <div class="control">
         <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
@@ -26,13 +26,13 @@
         <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
       </div>
       <div class="control">
-        <button class="button is-primary is-fullwidth" (click)="addJobSubmit()" id="submit-job-form">Submit</button>
+        <button class="button is-primary is-fullwidth">Submit</button>
       </div>
     </form>
   </div>
 </div>
 <!-- main content -->
-<section class="section" id="all-jobs-main">
+<section class="section">
   <div class="container">
     <div class="column" *ngFor="let job of allJobs">
       <article class="media notification">

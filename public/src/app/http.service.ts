@@ -27,4 +27,9 @@ export class HttpService {
   getJobs() {
     return this._http.get('/jobs');
   }
+
+  // Find a user by their ID
+  findUser(id: string) {
+    return this._http.get('/user/' + id);
+  }
 }

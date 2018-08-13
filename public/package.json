@@ -22,7 +22,10 @@
     "@angular/router": "^6.0.3",
     "bcryptjs": "^2.4.3",
     "core-js": "^2.5.4",
+    "ngx-socket-io": "^1.1.1",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.2",
+    "ts-polyfill": "^3.0.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

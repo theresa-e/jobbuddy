@@ -7,10 +7,12 @@ import { HttpService } from '../http.service';
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.css']
 })
+
 export class JobsComponent implements OnInit {
   newJob: any;
   userId: string;
   allJobs: any;
+  
   constructor(
     private _router: Router,
     private _httpService: HttpService

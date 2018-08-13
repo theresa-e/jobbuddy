@@ -21,7 +21,7 @@ import { DiscussComponent } from './discuss/discuss.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
     ],
   providers: [HttpService],
   bootstrap: [AppComponent]

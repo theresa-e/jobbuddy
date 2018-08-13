@@ -1,29 +1,41 @@
-    body {
-      margin: 0;
-    }
+body {
+  margin: 0;
+}
 
-    .title {
-      color: #fff;
-    }
+.title {
+  color: #fff;
+}
 
-    .navbar {
-      background-color: #b5dcdc;
-    }
+.navbar {
+  background-color: #b5dcdc;
+}
 
-    .hero {
-      font-family: "Cutive";
-      background-image: linear-gradient(-225deg, #50A7C2 33%, #9ed0e0 109%);
-      font-size: 50px;
-    }
+.hero {
+  font-family: "Cutive";
+  background-image: linear-gradient(-225deg, #50A7C2 33%, #9ed0e0 109%);
+  font-size: 50px;
+}
 
-    .container {
-      margin-top: 10px;
-      height: 100%;
-      display: flex;
-      flex-direction: c
-    }
+.container {
+  margin-top: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: c
+}
 
-    .right-content {
-      height: 800px;
-      overflow: auto;
-    }
+.right-content {
+  height: 800px;
+  overflow: auto;
+}
+
+.chatroom {
+  border: 1px solid grey;
+}
+
+.chatroom-content {
+  min-height: 600px;
+}
+
+.main {
+  margin: 20px;
+}

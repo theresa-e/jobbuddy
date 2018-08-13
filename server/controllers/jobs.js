@@ -67,6 +67,27 @@ module.exports = {
         })
     },
 
+    // Retrieve user info based on ID
+    findUserById: (req, res) => {
+        User.findOne({
+            _id: req.params.id
+        }, (err, user) => {
+            if (err) {
+                console.log('Error ------ Could not find user by that ID.');
+                res.json({
+                    message: "Error",
+                    errors: err
+                })
+            } else {
+                console.log('Success ------ Found user.');
+                res.json({
+                    message: "Success",
+                    user: user
+                })
+            }
+        })
+    },
+    
     createJob: (req, res) => {
         console.log('controller')
         var job = new Job({

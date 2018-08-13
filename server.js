@@ -23,7 +23,24 @@ app.use(express.static(__dirname + '/public/dist/public'));
 require('./server/models/user.js')
 
 /* ---------- Socket.io ---------- */
-var io = require('socket.io').listen(server);
+const io = require('socket.io')(server);
+
+const allMessages = []; // will store chatroom messages
+io.on('connection', (socket) => {
+    console.log('user connected')
+
+    socket.on('chat message', (newMsg) => {
+        console.log('something came back to the server!')
+        console.log('-----> ', newMsg);
+        allMessages.push(newMsg);
+        io.emit('message', allMessages);
+    })
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+
+
+});
 
 /* ---------- Routes ---------- */
 require('./server/config/routes.js')(app)

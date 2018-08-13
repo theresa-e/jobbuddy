@@ -19,6 +19,11 @@ module.exports = function(app){
         jobsController.createJob(req, res);
     });
 
+    // Retrieve user info by ID
+    app.get('/user/:id', (req, res) => {
+        jobsController.findUserById(req, res);
+    })
+
     // Retrieve all jobs
     app.get('/jobs', (req, res) => {
         jobsController.getAllJobs(req, res);

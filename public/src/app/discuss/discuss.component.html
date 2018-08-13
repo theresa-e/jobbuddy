@@ -1,19 +1,36 @@
 <!-- begin main content -->
-<div class="container">
-  <div class="columns">
-
-    <!-- left table -->
-    <div class="column is-one-third left-content">
-      <h1 class="is-size-2">Join a discussion</h1>
-      <div class="content">
-        <h1>Active rooms will go here</h1>
-      </div>
-    </div>
-
-    <!-- right tables -->
-    <div class="column is-two-thirds right-content">
-      <div class="notification">
-        <h1>Chatroom will load here! :)</h1>
-      </div>
+<div class="columns main">
+  <!-- left table -->
+  <div class="column is-one-third">
+    <h1 class="is-size-3">Who's Online:</h1>
+    <div class="content">
+      <h4>Active user</h4>
+      <h4>Active user</h4>
+      <h4>Active user</h4>
+      <h4>Active user</h4>
     </div>
   </div>
+  <!-- right tables -->
+  <div class="column">
+    <div class="chatroom">
+      <div class="chatroom-content">
+        {{ messages|json }}
+        <span *ngFor="let msg of messages">
+          <p>{{ msg.name }}: {{ msg.content }}</p>
+        </span>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <form (submit)="sendMessage()">
+        <p class="control is-expanded">
+          <input class="input is-medium" type="text" name="message" [(ngModel)]="message.content">
+        </p>{{userInfo|json}}
+        <p class="control">
+          <button class="button is-medium is-warning">
+            Send Message
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

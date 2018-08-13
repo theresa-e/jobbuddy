@@ -64,7 +64,7 @@ export class LandingComponent implements OnInit {
           this.pwError = "";
         }
       } else {
-        // Save id in local storage and navigate them to main page.
+        // Save id in local storage and navigate them to jobs component.
         console.log("------ User registered and logged in, navigating to main page.")
         let userId = res.user._id;
         localStorage.setItem('userId', userId)
