@@ -24,22 +24,37 @@ require('./server/models/user.js')
 
 /* ---------- Socket.io ---------- */
 const io = require('socket.io')(server);
+const allMessages = []; // contains all messages post
+const usersLoggedIn = [];
+var userInfo = {}
 
-const allMessages = []; // will store chatroom messages
 io.on('connection', (socket) => {
     console.log('user connected')
-
+    io.emit('activeUsers', usersLoggedIn);
+    io.emit('messages', allMessages);
+    socket.on('userInfo', (user) => {
+        usersLoggedIn.push(user);
+        console.log('Users that are loggedin: ', usersLoggedIn);
+        userInfo = user;
+        socket.emit('activeUsers', usersLoggedIn);
+        socket.broadcast.emit('activeUsers', usersLoggedIn);
+    })
     socket.on('chat message', (newMsg) => {
         console.log('something came back to the server!')
         console.log('-----> ', newMsg);
         allMessages.push(newMsg);
-        io.emit('message', allMessages);
+        io.emit('messages', allMessages);
     })
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        // Remove user from active list when they disconnect 
+        for (var i = 0; i < usersLoggedIn.length; i++) {
+            console.log(userInfo)
+            if (usersLoggedIn[i]._id === userInfo._id) {
+                usersLoggedIn.splice(i, 1);
+                io.emit('activeUsers', usersLoggedIn);
+            }
+        }
     });
-
-
 });
 
 /* ---------- Routes ---------- */

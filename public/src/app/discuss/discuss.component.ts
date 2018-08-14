@@ -16,6 +16,7 @@ export class DiscussComponent implements OnInit {
   messages: any;
   userId: string;
   userInfo: any;
+  allActiveUsers: any;
 
   constructor(
     private discussService: DiscussService,
@@ -27,7 +28,8 @@ export class DiscussComponent implements OnInit {
     this.checkLoggedIn();
     this.setMessages();
     this.getUserInfo();
-    this.message = {name: "", content: ""};
+    this.setActiveUsers();
+    this.message = { name: "", content: "" };
   }
 
   // Check if user is logged in 
@@ -42,6 +44,12 @@ export class DiscussComponent implements OnInit {
     }
   }
 
+  // Add active user
+  addActiveUser() {
+    console.log('Adding an active user.')
+    let observable = this.discussService.addActiveUser(this.userInfo);
+  }
+
   // Get user info 
   getUserInfo() {
     let observable = this.httpService.findUser(this.userId);
@@ -49,9 +57,18 @@ export class DiscussComponent implements OnInit {
       console.log('Response from service: ', res);
       this.userInfo = res['user'];
       this.message.name = this.userInfo.firstName;
+      console.log('----- Setting user as active.');
+      this.addActiveUser();
     })
   }
 
+  setActiveUsers() {
+    this.connection = this.discussService.getActiveUsers().subscribe(users => {
+      console.log('------ Users logged in: ', users)
+      this.allActiveUsers = users;
+    });
+  }
+  
   setMessages() {
     this.connection = this.discussService.getMessages().subscribe(message => {
       console.log(message)
@@ -61,7 +78,7 @@ export class DiscussComponent implements OnInit {
 
   sendMessage() {
     console.log(this.userInfo)
-    this.discussService.sendMessage(this.message);
+    let observable = this.discussService.sendMessage(this.message);
     this.message.content = "";
   }
 
