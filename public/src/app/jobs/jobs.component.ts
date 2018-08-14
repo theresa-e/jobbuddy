@@ -10,7 +10,7 @@ import { HttpService } from '../http.service';
 
 export class JobsComponent implements OnInit {
   newJob: any;
-  userId: string;
+  user: string;
   allJobs: any;
   
   constructor(
@@ -32,6 +32,11 @@ export class JobsComponent implements OnInit {
     if (!localStorage.getItem('userId')) {
       console.log("---- User is not logged in, redirecting them back to main page."); 
       this._router.navigate(['/index']);
+    } else {
+      let observable = this._httpService.findUser(localStorage.getItem('userId'));
+      observable.subscribe((res) => {
+        this.user = res.user;
+      })
     }
   }
 
@@ -55,8 +60,17 @@ export class JobsComponent implements OnInit {
   addJob(newJob: any, id: string): void {
     let observable = this._httpService.createJob({ job: newJob, userId: id});
     observable.subscribe((res) => {
-      console.log('response from server: ', res)
+      console.log('Response from server: ', res)
       this.getJobs()
     });
+  }
+
+  // Like a job
+  likeJob(id): void {
+    console.log('job id: ', id)
+    let observable = this._httpService.addLike(id, {user: this.user});
+    observable.subscribe((res) => {
+      console.log('Response from server: ', res);
+    })
   }
 }

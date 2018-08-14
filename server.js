@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
         io.emit('messages', allMessages);
     })
     socket.on('disconnect', () => {
-        // Remove user from active list when they disconnect 
+        // Remove user from active list when they disconnect. 
         for (var i = 0; i < usersLoggedIn.length; i++) {
             console.log(userInfo)
             if (usersLoggedIn[i]._id === userInfo._id) {

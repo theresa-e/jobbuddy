@@ -1,8 +1,6 @@
 <!-- prompt to show form -->
 <div class="column has-text-centered">
   <p>See a job someone else might be interested in? Add it to the job board ✨ </p>
-  <button class="button">Add Job</button>
-<button class="button">Cancel</button>
 </div>
 <!-- form (hidden until triggered by user) -->
 <div class="add-job-form">
@@ -38,8 +36,8 @@
       <article class="media notification">
         <figure class="media-left">
           <span class="icon">
-            <a href="#">
-              <i class="fab  fa-2x fas fa-plus"></i>
+            <a (click)="likeJob(job._id)">
+              <i class="far fa-thumbs-up"></i>
             </a>
           </span>
         </figure>

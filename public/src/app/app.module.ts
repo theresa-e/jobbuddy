@@ -9,13 +9,15 @@ import { LandingComponent } from './landing/landing.component';
 import { HttpService } from './http.service';
 import { JobsComponent } from './jobs/jobs.component';
 import { DiscussComponent } from './discuss/discuss.component';
+import { StudygroupsComponent } from './studygroups/studygroups.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     JobsComponent,
-    DiscussComponent
+    DiscussComponent,
+    StudygroupsComponent
   ],
   imports: [
     BrowserModule,

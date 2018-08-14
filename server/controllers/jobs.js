@@ -88,6 +88,32 @@ module.exports = {
         })
     },
     
+    likeJob: (req, res) => {
+        console.log('the id found in URL: ', req.params._id);
+        console.log('request.body: ', req.body)
+        Job.findOneAndUpdate({
+            _id: req.params._id
+        }, {
+            $push: {
+                likes: req.body.user
+            }
+        }, (err, job) => { 
+            if (err) {
+                console.log('------- Error: Could not save "like" to this job.');
+                res.json({
+                    message: "Error",
+                    error: err
+                })
+            } else {
+                console.log('------- Success: Saved user\'s "like" to this job.');
+                res.json({
+                    message: "Success",
+                    job: job
+                })
+            }
+        })
+    },
+    
     createJob: (req, res) => {
         console.log('controller')
         var job = new Job({

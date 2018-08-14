@@ -32,4 +32,9 @@ export class HttpService {
   findUser(id: string) {
     return this._http.get('/user/' + id);
   }
+
+  // Like a job
+  addLike(id: string, user) {
+    return this._http.post('/jobs/' + id, user);
+  }
 }

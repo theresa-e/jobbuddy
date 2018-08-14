@@ -28,4 +28,9 @@ module.exports = function(app){
     app.get('/jobs', (req, res) => {
         jobsController.getAllJobs(req, res);
     })
+
+    // User likes a job
+    app.post('/jobs/:_id', (req, res) => {
+        jobsController.likeJob(req, res);
+    })
 }
