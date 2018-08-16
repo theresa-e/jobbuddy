@@ -16,6 +16,13 @@ body {
   font-size: 50px;
 }
 
+.columns {
+  padding: 3vh 10vw;
+}
+
+.column {
+  padding: 0 .75rem;
+}
 .container {
   margin-top: 10px;
   height: 100%;
@@ -24,18 +31,30 @@ body {
 }
 
 .right-content {
-  height: 800px;
+  height: 70vh;
   overflow: auto;
 }
 
+.left-content {
+  background-color: #f5f5f5;
+  border: 1px solid #dddddf;
+  border-radius: 4px;
+}
 .chatroom {
-  border: 1px solid grey;
+  border: 1px solid #dddddf;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  overflow: scroll;
 }
 
 .chatroom-content {
   min-height: 600px;
 }
+.online-now {
+  color: #91c988;
+}
 
-.main {
-  margin: 20px;
+.message-content {
+  width: 100%;
 }

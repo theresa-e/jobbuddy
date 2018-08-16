@@ -10,6 +10,8 @@ import { HttpService } from './http.service';
 import { JobsComponent } from './jobs/jobs.component';
 import { DiscussComponent } from './discuss/discuss.component';
 import { StudygroupsComponent } from './studygroups/studygroups.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { StudygroupsComponent } from './studygroups/studygroups.component';
     LandingComponent,
     JobsComponent,
     DiscussComponent,
-    StudygroupsComponent
+    StudygroupsComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

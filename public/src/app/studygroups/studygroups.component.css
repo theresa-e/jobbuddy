@@ -1,0 +1,28 @@
+    body {
+      margin: 0;
+    }
+
+    .title {
+      color: #fff;
+    }
+
+    .navbar {
+      background-color: #b5dcdc;
+    }
+
+    .hero {
+      font-family: "Cutive";
+      background-image: linear-gradient(-225deg, #50A7C2 33%, #9ed0e0 109%);
+      font-size: 50px;
+    }
+
+    .container {
+      margin-top: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: c
+    }
+
+    .right-content {
+      overflow: auto;
+    }

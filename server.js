@@ -21,17 +21,28 @@ app.use(express.static(__dirname + '/public/dist/public'));
 
 /* ---------- Mongoose ---------- */
 require('./server/models/user.js')
+const mongoose = require('mongoose');
+var Message = mongoose.model('Message');
 
 /* ---------- Socket.io ---------- */
 const io = require('socket.io')(server);
-const allMessages = []; // contains all messages post
+const allMessages = []; // contains all messages posted
 const usersLoggedIn = [];
 var userInfo = {}
+
 
 io.on('connection', (socket) => {
     console.log('user connected')
     io.emit('activeUsers', usersLoggedIn);
-    io.emit('messages', allMessages);
+    Message.find({}, (err, allMsgs) => {
+        if (err) {
+            console.log('------ Error: Could not retrieve all messages.');
+        } else {
+            console.log('------- Success: Retrieved all messages!');
+            console.log(allMsgs);
+            io.emit('messages', allMsgs);
+        }
+    })
     socket.on('userInfo', (user) => {
         usersLoggedIn.push(user);
         console.log('Users that are loggedin: ', usersLoggedIn);
@@ -39,12 +50,30 @@ io.on('connection', (socket) => {
         socket.emit('activeUsers', usersLoggedIn);
         socket.broadcast.emit('activeUsers', usersLoggedIn);
     })
-    socket.on('chat message', (newMsg) => {
+    socket.on('chat message', (msg) => {
         console.log('something came back to the server!')
-        console.log('-----> ', newMsg);
-        allMessages.push(newMsg);
-        io.emit('messages', allMessages);
-    })
+        console.log('-----> ', msg);
+        var newMsg = new Message({
+            name: msg.name,
+            content: msg.content
+        });
+        newMsg.save((err) => {
+            if (err) {
+                console.log('------ Could not save new message.');
+            } else {
+                console.log('------ Saved new message.');
+                Message.find({}, (err, allMsgs) => {
+                    if (err) {
+                        console.log('------ Error: Could not retrieve all messages.');
+                    } else {
+                        console.log('------- Success: Retrieved all messages!');
+                        console.log(allMsgs);
+                        io.emit('messages', allMsgs);
+                    }
+                })
+            }
+        })
+    });
     socket.on('disconnect', () => {
         // Remove user from active list when they disconnect. 
         for (var i = 0; i < usersLoggedIn.length; i++) {

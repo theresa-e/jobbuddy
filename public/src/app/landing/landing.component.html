@@ -28,71 +28,10 @@
 </section>
 <section class="center">
   <span class="section_buttons">
-    <button class="button" id="show-login">Login</button>
-    <button class="button" id="show-regist">Register</button>
+    <button class="button" id="show-login" (click)="showLoginForm()">Login</button>
+    <button class="button" id="show-regist" (click)="showRegForm()">Register</button>
   </span>
 </section>
-<!-- Login form -->
-<div class="log-reg-form">
-  <div class="field">
-    <form (submit)="loginSubmit()">
-      <label class="label">Email:</label>
-      <div class="control">
-        <input type="text" class="input" placeholder="jane.smith@gmail.com" name="email" [(ngModel)]="userCredentials.email">
-      </div>
-      <label class="label">Password:</label>
-      <div class="control">
-        <input type="password" class="input" name="password" [(ngModel)]="userCredentials.password">
-        <br>
-        <span *ngIf="loginError">{{ loginError }}</span>
-      </div>
-      <div class="field is-grouped">
-        <div class="control">
-          <p>
-            <button class="button is-link">Submit</button>
-          </p>
-        </div>
-      </div>
-    </form>
-  </div>
-  <!-- Registration form -->
-  <div class="field">
-    <form (submit)="registrationSubmit()">
-      <label class="label">First Name:</label>
-      <div class="control">
-        <input type="text" class="input" placeholder="Jane" name="firstName" [(ngModel)]="newUser.firstName">
-        <br>
-        <span *ngIf="firstNameError">{{ firstNameError }}</span>
-      </div>
-      <label class="label">Last Name:</label>
-      <div class="control">
-        <input type="text" class="input" placeholder="Smith" name="lastName" [(ngModel)]="newUser.lastName">
-        <br>
-        <span *ngIf="lastNameError">{{ lastNameError }}</span>
-      </div>
-      <label class="label">Email:</label>
-      <div class="control">
-        <input type="text" class="input" placeholder="jane.smith@gmail.com" name="email" [(ngModel)]="newUser.email">
-        <br>
-        <span *ngIf="emailError">{{ emailError }}</span>
-      </div>
-      <label class="label">Password:</label>
-      <div class="control">
-        <input type="password" class="input" name="password" [(ngModel)]="newUser.password">
-        <br>
-        <span *ngIf="pwError">{{ pwError }}</span>
-      </div>
-      <label class="label">Password Confirmation:</label>
-      <div class="control">
-        <input type="password" class="input" name="passwordConfirm">
-      </div>
-      <div class="field is-grouped">
-        <div class="control">
-          <p>
-            <input type="submit" class="button is-link" value="Submit">
-          </p>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+
+<app-login *ngIf="loginFormShowing"></app-login>
+<app-registration *ngIf="regFormShowing"></app-registration>

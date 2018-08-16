@@ -1,11 +1,13 @@
 <!-- begin main content -->
 <div class="columns main">
   <!-- left table -->
-  <div class="column is-one-third">
-    <h1 class="is-size-3">Who's Online:</h1>
+  <div class="column is-one-third left-content">
+    <h1 class="is-size-3">Currently Online</h1>
     <div class="content">
       <span *ngFor="let user of allActiveUsers">
-        <p>{{ user.firstName }} {{ user.lastName }}</p>
+        <p>
+          <i class="fas fa-circle online-now"></i>
+          {{ user.firstName }} {{ user.lastName }}</p>
       </span>
     </div>
   </div>
@@ -19,17 +21,17 @@
         </span>
       </div>
     </div>
-    <div class="field is-grouped">
-      <form (submit)="sendMessage()">
-        <p class="control is-expanded">
-          <input class="input is-medium" type="text" name="message" [(ngModel)]="message.content">
-        </p>
-        <p class="control">
-          <button class="button is-medium is-warning">
-            Send Message
-          </button>
-        </p>
-      </form>
-    </div>
+    <!-- <div class="field is-grouped"> -->
+    <form>
+      <p class="control is-expanded">
+        <input class="input message-content" type="text" name="message" [(ngModel)]="message.content">
+      </p>
+      <p class="control">
+        <a class="button is-medium is-primary message-content" (click)="sendMessage()">
+          Send Message
+        </a>
+      </p>
+    </form>
+    <!-- </div> -->
   </div>
 </div>

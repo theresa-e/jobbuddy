@@ -1,0 +1,40 @@
+<!-- Registration form -->
+<div class="field log-reg-form">
+  <form (submit)="registrationSubmit()">
+    <label class="label">First Name:</label>
+    <div class="control">
+      <input type="text" class="input" placeholder="Jane" name="firstName" [(ngModel)]="newUser.firstName">
+      <br>
+      <span *ngIf="firstNameError">{{ firstNameError }}</span>
+    </div>
+    <label class="label">Last Name:</label>
+    <div class="control">
+      <input type="text" class="input" placeholder="Smith" name="lastName" [(ngModel)]="newUser.lastName">
+      <br>
+      <span *ngIf="lastNameError">{{ lastNameError }}</span>
+    </div>
+    <label class="label">Email:</label>
+    <div class="control">
+      <input type="text" class="input" placeholder="jane.smith@gmail.com" name="email" [(ngModel)]="newUser.email">
+      <br>
+      <span *ngIf="emailError">{{ emailError }}</span>
+    </div>
+    <label class="label">Password:</label>
+    <div class="control">
+      <input type="password" class="input" name="password" [(ngModel)]="newUser.password">
+      <br>
+      <span *ngIf="pwError">{{ pwError }}</span>
+    </div>
+    <label class="label">Password Confirmation:</label>
+    <div class="control">
+      <input type="password" class="input" name="passwordConfirm">
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <p>
+          <input type="submit" class="button is-link" value="Submit">
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

@@ -7,8 +7,8 @@ This project is in progress. Below are user stories I'm working on implementing:
 
 - [x] Users can login or register for an account
 - [x] Users can post/share jobs for others to see
-- [ ] Users are able to favorite/like jobs
+- [x] Users are able to favorite/like jobs
 - [x] Users can post/receive messages in the chatroom
 - [x] Chatroom has a list of users currently online. User's name is removed when they leave the room.
 - [ ] Users are able to create new study groups
-- [ ] Users can join existing study groups 
+- [ ] Users can join existing study groups

@@ -157,6 +157,7 @@ module.exports = {
         })
     },
 
+    // Retrieve all jobs
     getAllJobs: (req, res) => {
         Job.find({}, (err, jobs) => {
             if (err) {

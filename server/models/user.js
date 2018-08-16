@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/jobs');
 
+var MessageSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    content: {
+        type: String,
+    }
+}, {
+    timestamps: true
+});
 
 var JobSchema = new mongoose.Schema({
     title: {
@@ -20,13 +31,34 @@ var JobSchema = new mongoose.Schema({
     },
     perks: {
         type: String,
-    }, 
+    },
     totalLikes: 0,
-    likes: {
-        type: [UserSchema]
-    }
 })
 
+var StudyGroupSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, "Study group must have a name."]
+    },
+    date: {
+        type: String,
+        required: [true, "Please enter a date."]
+    },
+    location: {
+        type: String,
+        required: [true, "Please enter a location."]
+    },
+    time: {
+        type: String,
+        required: [true, "Please enter a meeting time."]
+    },
+    description: {
+        type: String,
+        required: [true, "Enter a brief description of the topic of this study group."]
+    }
+}, {
+    timestamps: true
+})
 var UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -48,13 +80,15 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required."],
         minlength: [8, "Password must be at least 8 characters in length."]
-    }, 
+    },
     posted_jobs: {
         type: [JobSchema]
-    }
+    },
+    likes: [JobSchema]
 }, {
     timestamps: true
 });
 
 mongoose.model('User', UserSchema)
 mongoose.model('Job', JobSchema)
+mongoose.model('Message', MessageSchema)

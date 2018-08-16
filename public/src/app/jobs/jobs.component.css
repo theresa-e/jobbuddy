@@ -1,16 +1,39 @@
-body {
-    margin: 0 auto;
-}
-
-.navbar {
-    background-color: #b5dcdc;
-}
-
 p {
-    color: #000;
+  color: #000;
 }
 
 .add-job-form {
-    width: 50%;
-    margin: auto;
+  width: 58%;
+  margin: 0 auto;
+}
+
+.right-col-jobs {
+  height: 70vh;
+  overflow: scroll;
+  vertical-align: top;
+}
+
+.columns {
+  padding: 3vh 10vw;
+}
+
+.button {
+  margin-top: 10px;
+}
+
+.label {
+  text-align: left;
+}
+
+.input {
+  width: 100%;
+}
+
+.left-col {
+  background-color: #e5e5e5;
+  border-radius: 4px;
+}
+
+.column {
+    padding: 0 .75rem;
 }

@@ -1,57 +1,57 @@
-<!-- prompt to show form -->
-<div class="column has-text-centered">
-  <p>See a job someone else might be interested in? Add it to the job board ✨ </p>
-</div>
-<!-- form (hidden until triggered by user) -->
-<div class="add-job-form">
-  <p class="is-size-5">Add a new job</p>
-  <div class="field">
-    <form id="add-job-form" (submit)="addJobSubmit()">
-      <label for="title" class="label">Title: </label>
-      <div class="control">
-        <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
-      </div>
-      <label for="desc" class="label">Description: </label>
-      <div class="control">
-        <input type="text" class="input" name="desc" [(ngModel)]="newJob.desc">
-      </div>
-      <label for="url" class="label">Perks (optional): </label>
-      <div class="control">
-        <input type="text" class="input" name="perks" [(ngModel)]="newJob.perks">
-      </div>
-      <label for="url" class="label">URL: </label>
-      <div class="control">
-        <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
-      </div>
-      <div class="control">
-        <button class="button is-primary is-fullwidth">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
-<!-- main content -->
-<section class="section">
-  <div class="container">
-    <div class="column" *ngFor="let job of allJobs">
-      <article class="media notification">
-        <figure class="media-left">
-          <span class="icon">
-            <a (click)="likeJob(job._id)">
-              <i class="far fa-thumbs-up"></i>
-            </a>
-          </span>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <h1 class="title is-size-4">{{ job.title }}</h1>
-            <a href=job.url class="is-size-6">View posting!</a>
-            <p *ngIf="job.perks" class="is-size-6">Perks: {{ job.perks }}</p>
-            <p class="is-size-6">
-              {{ job.description }}
-            </p>
+<div class="columns">
+  <!-- prompt to show form -->
+  <div class="left-col column has-text-centered is-one-third">
+    <p>See a job someone else might be interested in?
+      <br> Add it to the job board ✨ </p>
+    <!-- form (hidden until triggered by user) -->
+    <div class="add-job-form">
+      <br>
+      <p class="is-size-5">Add a new job</p>
+      <div class="field">
+        <form>
+          <div class="control">
+            <label for="title" class="label">Title: </label>
+            <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
           </div>
-        </div>
-      </article>
+          <div class="control">
+            <label for="desc" class="label">Description: </label>
+            <input type="text" class="input" name="desc" [(ngModel)]="newJob.desc">
+          </div>
+          <div class="control">
+            <label for="url" class="label">Perks (optional): </label>
+            <input type="text" class="input" name="perks" [(ngModel)]="newJob.perks">
+          </div>
+          <div class="control">
+            <label for="url" class="label">URL: </label>
+            <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
+          </div>
+          <div class="control">
+            <a class="button is-fullwidth is-primary" (click)="addJobSubmit()">Submit</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</section>
+  <!-- main content -->
+  <div class="column right-col-jobs">
+    <article class="media notification" *ngFor=" let job of allJobs ">
+      <figure class="media-left">
+        <span class="icon">
+          <a (click)="likeJob(job._id)">
+            <i class="far fa-thumbs-up"></i>
+          </a>
+        </span>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <h1 class="title is-size-4">{{ job.title }}</h1>
+          <a href=job.url class="is-size-6">View posting!</a>
+          <p *ngIf="job.perks" class="is-size-6">Perks: {{ job.perks }}</p>
+          <p class="is-size-6">
+            {{ job.description }}
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

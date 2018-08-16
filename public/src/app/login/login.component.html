@@ -1,0 +1,24 @@
+<!-- Login form -->
+<div class="log-reg-form">
+  <div class="field">
+    <form (submit)="loginSubmit()">
+      <label class="label">Email:</label>
+      <div class="control">
+        <input type="text" class="input" placeholder="jane.smith@gmail.com" name="email" [(ngModel)]="userCredentials.email">
+      </div>
+      <label class="label">Password:</label>
+      <div class="control">
+        <input type="password" class="input" name="password" [(ngModel)]="userCredentials.password">
+        <br>
+        <span *ngIf="loginError">{{ loginError }}</span>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <p>
+            <button class="button is-link">Submit</button>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
