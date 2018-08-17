@@ -23,6 +23,7 @@ body {
 .column {
   padding: 0 .75rem;
 }
+
 .container {
   margin-top: 10px;
   height: 100%;
@@ -40,6 +41,7 @@ body {
   border: 1px solid #dddddf;
   border-radius: 4px;
 }
+
 .chatroom {
   border: 1px solid #dddddf;
   border-radius: 4px;

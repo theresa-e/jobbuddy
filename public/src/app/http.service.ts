@@ -10,31 +10,46 @@ export class HttpService {
 
   // Process new user registration
   registerUser(user: any) {
-    return this._http.post('/register', user);
+    return this._http.post('/api/register', user);
   }
 
   // Process user login request
   loginUser(user: any) {
-    return this._http.post('/login', user);
+    return this._http.post('/api/login', user);
   }
 
   // Create new job posting
   createJob(job: any) {
-    return this._http.post('/jobs', job);
+    return this._http.post('/api/jobs', job);
   }
 
   // Retrieve all jobs
   getJobs() {
-    return this._http.get('/jobs');
+    return this._http.get('/api/jobs');
   }
 
   // Find a user by their ID
   findUser(id: string) {
-    return this._http.get('/user/' + id);
+    return this._http.get('/api/user/' + id);
   }
 
   // Like a job
   addLike(id: string, user) {
-    return this._http.post('/jobs/' + id, user);
+    return this._http.post('/api/jobs/' + id, user);
+  }
+
+  // Create a new study group
+  createGroup(group: any) {
+    return this._http.post('/api/groups', group);
+  }
+
+  // Retrieve all groups
+  getGroups() {
+    return this._http.get('/api/groups');
+  }
+
+  // Find group by ID
+  findGroup(id: string) {
+    return this._http.get('/api/groups/' + id);
   }
 }

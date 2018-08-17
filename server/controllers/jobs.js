@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 require('../models/user.js');
 var User = mongoose.model('User');
 var Job = mongoose.model('Job');
+var Group = mongoose.model('Group');
 var bcrypt = require('bcryptjs');
 mongoose.Types.ObjectId
 
@@ -22,16 +23,16 @@ module.exports = {
                     res.json({
                         message: "Error",
                         error: err
-                    })
+                    });
                 } else {
                     console.log('------ Success: New user was saved to database.');
                     res.json({
                         message: "Success",
                         user: user
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     },
 
     // Process login form
@@ -45,7 +46,7 @@ module.exports = {
                 res.json({
                     message: "Error",
                     error_msg: "Email and/or password is invalid."
-                })
+                });
             } else {
                 console.log('------ Success: Found account associated with email address.');
                 bcrypt.compare(req.body.password, user.password, (err, result) => {
@@ -54,17 +55,17 @@ module.exports = {
                         res.json({
                             message: "Success",
                             user: user
-                        })
+                        });
                     } else {
                         console.log('------ Passwords do not match!');
                         res.json({
                             message: "Error",
                             error: err
-                        })
+                        });
                     }
-                })
+                });
             }
-        })
+        });
     },
 
     // Retrieve user info based on ID
@@ -77,17 +78,17 @@ module.exports = {
                 res.json({
                     message: "Error",
                     errors: err
-                })
+                });
             } else {
                 console.log('Success ------ Found user.');
                 res.json({
                     message: "Success",
                     user: user
-                })
+                });
             }
-        })
+        });
     },
-    
+
     likeJob: (req, res) => {
         console.log('the id found in URL: ', req.params._id);
         console.log('request.body: ', req.body)
@@ -97,23 +98,23 @@ module.exports = {
             $push: {
                 likes: req.body.user
             }
-        }, (err, job) => { 
+        }, (err, job) => {
             if (err) {
                 console.log('------- Error: Could not save "like" to this job.');
                 res.json({
                     message: "Error",
                     error: err
-                })
+                });
             } else {
                 console.log('------- Success: Saved user\'s "like" to this job.');
                 res.json({
                     message: "Success",
                     job: job
-                })
+                });
             }
-        })
+        });
     },
-    
+
     createJob: (req, res) => {
         console.log('controller')
         var job = new Job({
@@ -130,7 +131,7 @@ module.exports = {
                 res.json({
                     message: "Error",
                     error: err
-                })
+                });
             } else {
                 User.findByIdAndUpdate({
                     _id: req.body.userId
@@ -150,11 +151,11 @@ module.exports = {
                         res.json({
                             message: "Success",
                             job: job
-                        })
+                        });
                     }
-                })
+                });
             }
-        })
+        });
     },
 
     // Retrieve all jobs
@@ -165,13 +166,59 @@ module.exports = {
                 res.json({
                     message: "Error",
                     error: err
-                })
+                });
             } else {
                 res.json({
                     message: "Success",
                     jobs: jobs
+                });
+            }
+        });
+    },
+
+    // Create new study group
+    createGroup: (req, res) => {
+        var newGroup = new Group({
+            name: req.body.name,
+            date: req.body.date,
+            location: req.body.location,
+            time: req.body.time,
+            description: req.body.description,
+            created_by: req.body.created_by
+        })
+        console.log('------ New study group: ', newGroup);
+        newGroup.save((err) => {
+            if (err) {
+                console.log('------ Error: Study group could not be saved.');
+                res.json({
+                    message: "Error",
+                    error: err
+                });
+            } else {
+                console.log('------ Success: Saved study group!');
+                res.json({
+                    message: "Success",
+                    group: newGroup
                 })
             }
         })
+    },
+
+    // Retrieve all groups
+    getAllGroups: (req, res) => {
+        Group.find({}, (err, groups) => {
+            if (err) {
+                console.log("------ Error: Could not retrieve all groups.");
+                res.json({
+                    message: "Error",
+                    error: err
+                });
+            } else {
+                res.json({
+                    message: "Success",
+                    groups: groups
+                });
+            }
+        });
     }
 }

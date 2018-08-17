@@ -55,10 +55,17 @@ var StudyGroupSchema = new mongoose.Schema({
     description: {
         type: String,
         required: [true, "Enter a brief description of the topic of this study group."]
+    }, 
+    created_by: {
+        type: Object
+    }, 
+    attendees: {
+        type: [UserSchema]
     }
 }, {
     timestamps: true
 })
+
 var UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -89,6 +96,7 @@ var UserSchema = new mongoose.Schema({
     timestamps: true
 });
 
-mongoose.model('User', UserSchema)
-mongoose.model('Job', JobSchema)
-mongoose.model('Message', MessageSchema)
+mongoose.model('User', UserSchema);
+mongoose.model('Job', JobSchema);
+mongoose.model('Message', MessageSchema);
+mongoose.model('Group', StudyGroupSchema);
