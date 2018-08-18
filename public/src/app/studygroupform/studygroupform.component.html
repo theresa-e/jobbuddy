@@ -39,13 +39,12 @@
   <div class="field">
     <label class="label">Description</label>
     <div class="control">
-      <textarea class="textarea" placeholder="Brief description of what this study group will accomplish." name="description" [(ngModel)]="studyGroup.description"></textarea>
+      <input type="text" class="input" name="description" [(ngModel)]="studyGroup.description">
     </div>
   </div>
   <div class="field is-grouped">
-    <div class="control">
+    <div class="submit">
       <button class="button is-link" (click)="submitGroup()">Submit</button>
-      <button class="button is-link">Cancel</button>
     </div>
 
   </div>

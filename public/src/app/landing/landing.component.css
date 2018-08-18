@@ -10,20 +10,30 @@ body {
   background-attachment: fixed;
 }
 
-h1 {
+.column {
+  height: 100%;
+}
+
+.column__title {
   font-family: "Cutive";
   color: #2d367a;
+  font-size: 2em;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.column__content {
+  color: #000;
+  font-size: 1em;
 }
 
-.center a {
-  margin: 0px 10px;
+.form {
+  text-align: center;
 }
+
+.form__title {
+  font-family: "Cutive";
+  font-size: 2.5em;
+}
+
 
 .title {
   font-size: 40px;
@@ -38,28 +48,31 @@ h1 {
   margin: auto;
 }
 
-#login-form,
-#regist-form {
-  display: none;
-  margin: 10px;
+.main {
+  background-color: #d5dce0;
+  -webkit-box-shadow: 13px 34px 55px -1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 13px 34px 55px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: 13px 34px 55px -1px rgba(0, 0, 0, 0.15);
 }
 
-a {
-  color: white;
+.main-img {
+  width: 50vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.one {
-  background-color: #7baac9;
+
+.navbar {
+  background-color: #b5dcdc;
 }
 
-.two {
-  background-color: #7babcabd;
+.container {
+  margin: 0 auto;
 }
 
-.three {
-  background-color: #91baceab;
-}
-
-p {
-  color: white;
+.button {
+  margin: 0 3px;
+  width: 10%;
+  padding: 0 5px;
 }

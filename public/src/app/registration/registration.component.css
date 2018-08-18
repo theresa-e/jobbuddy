@@ -1,59 +1,10 @@
-html {
-  height: 100%;
-}
-
-body {
-  background-color: #cfe3d9;
-  height: 1500px;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-h1 {
-  font-family: "Cutive";
-  color: #2d367a;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center a {
-  margin: 0px 10px;
-}
-
-.title {
-  font-size: 40px;
-}
-
-.notification {
-  height: 300px;
-}
-
-.log-reg-form {
-  width: 300px;
+.registration-form {
+  width: 30%;
   margin: auto;
+  padding: 30px;
 }
 
-a {
-  color: white;
-}
-
-.one {
-  background-color: #7baac9;
-}
-
-.two {
-  background-color: #7babcabd;
-}
-
-.three {
-  background-color: #91baceab;
-}
-
-p {
-  color: white;
+.submit {
+  justify-content: center;
+  margin: 5px auto;
 }

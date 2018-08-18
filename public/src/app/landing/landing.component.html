@@ -1,37 +1,42 @@
 <!-- Three main columns -->
 <section class="section">
   <div class="container">
+    <img src="../../assets/img/working.png" alt="Two people coworking." class="main-img">
+    <section class="form">
+      <h1 class="form__title">Create an account and join today!</h1>
+      <p>
+        <a (click)="showRegForm()" class="button">Register</a>
+        <a (click)="showLoginForm()" class="button">Login</a>
+      </p>
+      <app-login *ngIf="loginFormShowing"></app-login>
+      <app-registration *ngIf="regFormShowing"></app-registration>
+    </section>
     <div class="columns">
       <div class="column">
-        <div class="notification one">
-          <h1 class="is-size-4">Only positions you're actually interested in</h1>
-          <p class="is-size-6 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptatum! Dolorum quisquam aliquam suscipit?
+        <div class="notification main">
+          <h1 class="column__title">Share positions with your peers</h1>
+          <p class="column__content">
+            Ever see a posting that a friend would be perfect for? Share it with the community in the job board!
           </p>
         </div>
       </div>
       <div class="column">
-        <div class="notification two">
-          <h1 class="is-size-4">Keep track of your interviews</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptatum! Dolorum quisquam aliquam suscipit?
+        <div class="notification main">
+          <h1 class="column__title">Join the discussion</h1>
+          <p class="column__content">Step into the chatroom to chat with users currently online. Missed a great discussion? Don't worry, just browse
+            the chatroom's archive to catch up on what you missed.
           </p>
         </div>
       </div>
       <div class="column">
-        <div class="notification three">
-          <h1 class="is-size-4">Share your experience with the community</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptatum! </p>
+        <div class="notification main">
+          <h1 class="column__title">Participate in study groups</h1>
+          <p class="column__content">Boost your learning by attending a study group. Organize with the community by creating a post or join an existing
+            one.
+          </p>
         </div>
       </div>
     </div>
   </div>
   <br>
 </section>
-<section class="center">
-  <span class="section_buttons">
-    <button class="button" id="show-login" (click)="showLoginForm()">Login</button>
-    <button class="button" id="show-regist" (click)="showRegForm()">Register</button>
-  </span>
-</section>
-
-<app-login *ngIf="loginFormShowing"></app-login>
-<app-registration *ngIf="regFormShowing"></app-registration>

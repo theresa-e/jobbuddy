@@ -12,10 +12,10 @@
 </p>
 
 <p>
-  <strong>Organized by: </strong> 
- {{ groupInfo.created_by.firstName }}
- {{ groupInfo.created_by.lastName }}
+  <strong>Organized by: </strong>
+  {{ groupInfo.created_by.firstName }} {{ groupInfo.created_by.lastName }}
 </p>
 <p>
   <strong>Details: </strong> {{ groupInfo.description }}
 </p>
+<a class="button" (click)="joinGroup(groupInfo._id)">Join Group</a>

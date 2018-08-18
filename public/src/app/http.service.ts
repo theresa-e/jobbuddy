@@ -52,4 +52,9 @@ export class HttpService {
   findGroup(id: string) {
     return this._http.get('/api/groups/' + id);
   }
+
+  // Add user as attending a study group
+  addToGroup(id: string, user) {
+    return this._http.post('/api/groups/' + id, user);
+  }
 }

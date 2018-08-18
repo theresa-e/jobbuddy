@@ -6,24 +6,5 @@
     </div>
   </div>
 </section>
-<!-- navbar -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="index.html">
-      <p>JobBuddy</p>
-    </a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <a [routerLink]="['/main']" class="navbar-item">Browse Postings</a>
-    <a [routerLink]="['/discuss']" class="navbar-item">Discuss</a>
-    <a [routerLink]="['/groups']" class="navbar-item">Study Groups</a>
-    <a [routerLink]="['/main']" class="navbar-item">My Account</a>
-  </div>
-</nav>
-
+<app-navigation></app-navigation>
 <router-outlet></router-outlet>

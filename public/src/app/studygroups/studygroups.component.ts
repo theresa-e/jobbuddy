@@ -52,18 +52,17 @@ export class StudygroupsComponent implements OnInit {
 
   // Get all study groups
   getAllGroups() {
-    console.log('gettin all groups')
     let observable = this._httpService.getGroups();
     observable.subscribe((res) => {
       console.log('Response from server: ', res)
-      this.allGroups = res.groups;
+      this.allGroups = res.groups.reverse();
     })
   }
 
   // Show details on study group
   showGroupDetails(group: any) {
     this.groupToShow = group;
-    console.log('gonna show dis group: ', this.groupToShow)
+    console.log('gonna show dis group id: ', group)
     this.showGroupForm = false;
     this.showGroupDetail = true;
   }

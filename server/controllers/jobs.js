@@ -90,10 +90,10 @@ module.exports = {
     },
 
     likeJob: (req, res) => {
-        console.log('the id found in URL: ', req.params._id);
+        console.log('the id found in URL: ', req.params.id);
         console.log('request.body: ', req.body)
         Job.findOneAndUpdate({
-            _id: req.params._id
+            _id: req.params.id
         }, {
             $push: {
                 likes: req.body.user
@@ -217,6 +217,54 @@ module.exports = {
                 res.json({
                     message: "Success",
                     groups: groups
+                });
+            }
+        });
+    },
+
+    // Find group by ID
+    findGroupById: (req, res) => { 
+        Group.findOne({
+            _id: req.params.id
+        }, (err, group) => {
+            if (err) {
+                console.log('Error ------ Could not find group by that ID.');
+                res.json({
+                    message: "Error",
+                    errors: err
+                });
+            } else {
+                console.log('Success ------ Found group.');
+                res.json({
+                    message: "Success",
+                    group: group
+                });
+            }
+        });
+    },
+
+    // Add user as an attendee of a login form
+    addAttendee: (req, res) => {
+        console.log('the id found in URL: ', req.params.id);
+        console.log('request.body: ', req.body.user)
+        Group.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            $addToSet: {
+                attendees: req.body.user
+            }
+        }, (err, group) => {
+            if (err) {
+                console.log('------- Error: Could not add user as an attendee.');
+                res.json({
+                    message: "Error",
+                    error: err
+                });
+            } else {
+                console.log('------- Success: Added user as an attendee.');
+                res.json({
+                    message: "Success",
+                    group: group
                 });
             }
         });

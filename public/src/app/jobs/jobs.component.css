@@ -8,13 +8,13 @@ p {
 }
 
 .right-col-jobs {
-  height: 70vh;
   overflow: scroll;
   vertical-align: top;
 }
 
 .columns {
   padding: 3vh 10vw;
+  height: 70vh;
 }
 
 .button {
@@ -30,8 +30,9 @@ p {
 }
 
 .left-col {
-  background-color: #e5e5e5;
   border-radius: 4px;
+  border: 1px solid #dddddf;  
+  background-color: #f5f5f5;
 }
 
 .column {

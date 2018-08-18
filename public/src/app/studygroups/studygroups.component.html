@@ -2,9 +2,13 @@
 
   <!-- left table -->
   <div class="column is-one-third left-content">
-    <button class="button" (click)="showForm()">Create new group</button>
+    <h1 class="left__title">Study Groups</h1>
+    <p>Start a new study group or join an upcoming one by viewing their details 👏</p>
+    <div class="submit">
+      <button class="button" (click)="showForm()">Create new group</button>
+    </div>
     <app-studygroupform *ngIf="showGroupForm" [userInfo]="user" (getGroups)="getAllGroups($event)"></app-studygroupform>
-    <app-groupdetails *ngIf="showGroupDetail" [groupInfo]="groupToShow"></app-groupdetails>
+    <app-groupdetails *ngIf="showGroupDetail" [groupInfo]="groupToShow" [userInfo]="user"></app-groupdetails>
   </div>
 
   <!-- right tables -->

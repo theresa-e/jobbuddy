@@ -12,6 +12,7 @@ body {
 
 .columns {
   padding: 3vh 10vw;
+  height: 70vh;
 }
 
 .hero {
@@ -28,7 +29,6 @@ body {
 }
 
 .right-content {
-  height: 70vh;
   overflow: auto;
 }
 
@@ -42,3 +42,11 @@ body {
   border-radius: 4px;
 }
 
+.left__title {
+  font-family: "Cutive",
+  font-size: 2em;
+}
+
+.submit {
+  text-align: center;
+}

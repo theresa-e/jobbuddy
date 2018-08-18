@@ -66,7 +66,7 @@ export class JobsComponent implements OnInit {
   }
 
   // Like a job
-  likeJob(id): void {
+  likeJob(id:string): void {
     console.log('job id: ', id)
     let observable = this._httpService.addLike(id, {user: this.user});
     observable.subscribe((res) => {
