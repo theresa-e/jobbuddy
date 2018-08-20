@@ -36,7 +36,7 @@ export class JobsComponent implements OnInit {
       let observable = this._httpService.findUser(localStorage.getItem('userId'));
       observable.subscribe((res) => {
         this.user = res.user;
-      })
+      });
     }
   }
 
@@ -46,7 +46,7 @@ export class JobsComponent implements OnInit {
     observable.subscribe((res) => {
       console.log('Response from server: ', res);
       this.allJobs = res.jobs;
-    })
+    });
   }
   
   // Add job form submitted
@@ -71,6 +71,6 @@ export class JobsComponent implements OnInit {
     let observable = this._httpService.addLike(id, {user: this.user});
     observable.subscribe((res) => {
       console.log('Response from server: ', res);
-    })
+    });
   }
 }

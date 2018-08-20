@@ -1,4 +1,3 @@
-import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import * as io from 'socket.io-client';
 
@@ -13,6 +12,7 @@ export class DiscussService {
     console.log('------ Socket: ', this.socket);
   }
 
+  // Retrieves all messages
   getMessages() {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
@@ -22,16 +22,16 @@ export class DiscussService {
       return () => {
         this.socket.disconnect();
       }
-    })
+    });
     return observable;
   }
 
+  // Adds new user to 'online now' list
   addActiveUser(user) {
     this.socket.emit('userInfo', user);
     console.log('------ Added a new user: ', user);
     this.socket.on('activeUsers', (data) => {
-      
-    })
+    });
   }
 
   getActiveUsers() {
@@ -43,7 +43,7 @@ export class DiscussService {
       return () => {
         this.socket.disconnect();
       }
-    })
+    });
     return observable;
   }
 }

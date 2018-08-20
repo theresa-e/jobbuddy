@@ -7,34 +7,33 @@ import { HttpService } from '../http.service';
   styleUrls: ['./groupdetails.component.css']
 })
 export class GroupdetailsComponent implements OnInit {
-@Input() groupInfo: any;
-@Input() userInfo: any;
-group: any;
+  @Input() groupInfo: any;
+  @Input() userInfo: any;
+  public group: any;
 
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
-    console.log('this is the')
   }
 
   // Get group info based on id
-  getGroupInfo(id:string) {
+  getGroupInfo(id: string) {
     let observable = this._httpService.findGroup(id);
     observable.subscribe((res) => {
       console.log('Response from server: ', res);
-      this.groupInfo = res.group;
-    })
+      if (res.message === "Success") {
+        this.groupInfo = res.group;
+      }
+    });
   }
 
   // Allow user to join a specific group. 
   joinGroup(groupId: string) {
     console.log(groupId);
-    let observable = this._httpService.addToGroup(groupId, {user: this.userInfo});
+    let observable = this._httpService.addToGroup(groupId, { user: this.userInfo });
     observable.subscribe((res) => {
       console.log('Response from server: ', res);
     })
     this.getGroupInfo(this.groupInfo._id);
   }
-
-
 }

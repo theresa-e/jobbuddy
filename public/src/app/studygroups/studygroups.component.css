@@ -43,10 +43,15 @@ body {
 }
 
 .left__title {
-  font-family: "Cutive",
+  font-family: "Cutive";
   font-size: 2em;
 }
 
 .submit {
   text-align: center;
+}
+
+.content {
+  margin: 5% 10%;
+  line-height: 2px;
 }

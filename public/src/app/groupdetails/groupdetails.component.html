@@ -1,21 +1,23 @@
-<p>
-  <strong>Name: </strong> {{ groupInfo.name }}
-</p>
-<p>
-  <strong>Location: </strong> {{ groupInfo.location }}
-</p>
-<p>
-  <strong>Date: </strong> {{ groupInfo.date }}
-</p>
-<p>
-  <strong>Attendees: </strong> {{ groupInfo.attendees.length }}
-</p>
-
-<p>
-  <strong>Organized by: </strong>
-  {{ groupInfo.created_by.firstName }} {{ groupInfo.created_by.lastName }}
-</p>
-<p>
-  <strong>Details: </strong> {{ groupInfo.description }}
-</p>
-<a class="button" (click)="joinGroup(groupInfo._id)">Join Group</a>
+<div class="content">
+  <p>
+    <strong class="is-size-3">{{ groupInfo.name }}</strong>
+  </p>
+  <p>
+    <strong>Location: </strong> {{ groupInfo.location }}
+  </p>
+  <p>
+    <strong>Date: </strong> {{ groupInfo.date }}
+  </p>
+  <p>
+    <strong>Attendees: </strong> {{ groupInfo.attendees.length }}
+  </p>
+  
+  <p>
+    <strong>Organized by: </strong>
+    {{ groupInfo.created_by.firstName }} {{ groupInfo.created_by.lastName }}
+  </p>
+  <p>
+    <strong>Details: </strong> {{ groupInfo.description }}
+  </p>
+  <a class="button" (click)="joinGroup(groupInfo._id)">Join Group</a>
+</div>
