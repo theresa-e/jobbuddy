@@ -15,6 +15,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { StudygroupformComponent } from './studygroupform/studygroupform.component';
 import { GroupdetailsComponent } from './groupdetails/groupdetails.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     RegistrationComponent,
     StudygroupformComponent,
     GroupdetailsComponent,
-    NavigationComponent
+    NavigationComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

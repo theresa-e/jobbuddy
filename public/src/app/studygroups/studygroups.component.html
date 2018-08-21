@@ -1,5 +1,4 @@
 <div class="columns">
-
   <!-- left table -->
   <div class="column is-one-third left-content">
     <h1 class="left__title">Study Groups</h1>
@@ -10,7 +9,6 @@
     <app-studygroupform *ngIf="showGroupForm" [userInfo]="user" (getGroups)="getAllGroups($event)"></app-studygroupform>
     <app-groupdetails *ngIf="showGroupDetail" [groupInfo]="groupToShow" [userInfo]="user"></app-groupdetails>
   </div>
-
   <!-- right tables -->
   <div class="column is-two-thirds right-content">
     <div class="notification" *ngFor="let group of allGroups">

@@ -4,6 +4,7 @@ import { LandingComponent } from './landing/landing.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { DiscussComponent } from './discuss/discuss.component';
 import { StudygroupsComponent } from './studygroups/studygroups.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [{
   path: 'index',
@@ -17,6 +18,8 @@ const routes: Routes = [{
 }, {
   path: 'groups',
   component: StudygroupsComponent
+}, {
+  path: 'account', component: AccountComponent
 }, {
   path: '',
   pathMatch: 'full',

@@ -31,7 +31,7 @@ body {
 
 .form__title {
   font-family: "Cutive";
-  font-size: 2.5em;
+  font-size: 1.5em;
 }
 
 
@@ -41,6 +41,12 @@ body {
 
 .notification {
   height: 300px;
+}
+
+.buttons {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .log-reg-form {
@@ -56,12 +62,11 @@ body {
 }
 
 .main-img {
-  width: 50vw;
+  width: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .navbar {
   background-color: #b5dcdc;
@@ -69,10 +74,4 @@ body {
 
 .container {
   margin: 0 auto;
-}
-
-.button {
-  margin: 0 3px;
-  width: 10%;
-  padding: 0 5px;
 }

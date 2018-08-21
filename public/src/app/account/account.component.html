@@ -1,0 +1,32 @@
+<div class="columns">
+  <!-- left table -->
+  <div class="column is-one-third left-content">
+    <h1 class="left__title">{{ user.firstName }}'s Dash</h1>
+    <p>User Info:</p>
+    <p>First Name: {{ user.firstName }}</p>
+    <p>Last Name: {{ user.lastName }}</p>
+    <p>Contact Email: {{ user.email }}</p>
+    <button class="button">Edit Account Info</button>
+  </div>
+  <!-- right tables -->
+  <div class="column is-two-thirds right-content">
+    <div class="notification">
+      Posted Jobs (Total: {{user.posted_jobs.length}}):
+      <ul *ngFor="let job of user.posted_jobs">
+        <li>
+          -
+          <a href="#">{{ job.title }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="notification">
+      Liked Jobs (Total: {{ user.likes }}):
+      <ul *ngFor="let job of user.likes">
+        <li>
+          -
+          <a href="#">{{ job.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

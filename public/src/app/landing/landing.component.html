@@ -1,22 +1,21 @@
-<!-- Three main columns -->
 <section class="section">
   <div class="container">
     <img src="../../assets/img/working.png" alt="Two people coworking." class="main-img">
     <section class="form">
-      <h1 class="form__title">Create an account and join today!</h1>
-      <p>
+      <h1 class="form__title">Create an account so start accessing user-only content :) </h1>
+      <div class="buttons">
         <a (click)="showRegForm()" class="button">Register</a>
         <a (click)="showLoginForm()" class="button">Login</a>
-      </p>
+      </div>
       <app-login *ngIf="loginFormShowing"></app-login>
       <app-registration *ngIf="regFormShowing"></app-registration>
     </section>
     <div class="columns">
       <div class="column">
         <div class="notification main">
-          <h1 class="column__title">Share positions with your peers</h1>
+          <h1 class="column__title">Share with your peers</h1>
           <p class="column__content">
-            Ever see a posting that a friend would be perfect for? Share it with the community in the job board!
+            Ever see a posting that a friend would be perfect for? Share it with the community in the job board.
           </p>
         </div>
       </div>
@@ -38,5 +37,4 @@
       </div>
     </div>
   </div>
-  <br>
 </section>

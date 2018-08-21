@@ -29,11 +29,17 @@ body {
 }
 
 .right-content {
-  overflow: auto;
+  overflow: scroll;
+  border-radius: 4px;
 }
 
 .column {
   padding: 0 .75rem;
+}
+
+.notification {
+  border: 1px solid #dddddf;
+  min-height: 50%;
 }
 
 .left-content {
@@ -49,4 +55,3 @@ body {
 .submit {
   text-align: center;
 }
-
