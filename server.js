@@ -26,7 +26,6 @@ var Message = mongoose.model('Message');
 
 /* ---------- Socket.io ---------- */
 const io = require('socket.io')(server);
-const allMessages = []; // contains all messages posted
 const usersLoggedIn = [];
 var userInfo = {}
 

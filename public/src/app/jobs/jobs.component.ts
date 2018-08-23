@@ -12,7 +12,11 @@ export class JobsComponent implements OnInit {
   newJob: any;
   user: string;
   allJobs: any;
-  
+  userId: string;
+  titleError: string;
+  descError: string;
+  urlError: string;
+
   constructor(
     private _router: Router,
     private _httpService: HttpService
@@ -22,7 +26,6 @@ export class JobsComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.checkLoggedIn();
     this.newJob = { title: "", desc: "", URL: "", perks: "" }
-    console.log('getting jobs...')
     this.getJobs();
   }
 
@@ -42,9 +45,10 @@ export class JobsComponent implements OnInit {
 
   // Get all jobs
   getJobs(): void { 
+    console.log('Getting jobs from server:');
     let observable = this._httpService.getJobs();
     observable.subscribe((res) => {
-      console.log('Response from server: ', res);
+      console.log('Response from server getting all jobs: ', res);
       this.allJobs = res.jobs;
     });
   }
@@ -60,8 +64,19 @@ export class JobsComponent implements OnInit {
   addJob(newJob: any, id: string): void {
     let observable = this._httpService.createJob({ job: newJob, userId: id});
     observable.subscribe((res) => {
-      console.log('Response from server: ', res)
-      this.getJobs()
+      console.log('Response from server (adding job): ', res);
+      if (res.message == "Error") {
+        console.log(res.error);
+        if (res.error.errors.description) {
+          this.descError = res.error.errors.description.message;
+        } if (res.error.errors.title) {
+          this.titleError = res.error.errors.title.message;
+        } if (res.error.errors.url) {
+          this.urlError = res.error.errors.url.message;
+        }
+      } else {
+        this.getJobs()
+      }
     });
   }
 
@@ -70,7 +85,7 @@ export class JobsComponent implements OnInit {
     console.log('job id: ', id)
     let observable = this._httpService.addLike(id, {user: this.user});
     observable.subscribe((res) => {
-      console.log('Response from server: ', res);
+      console.log('Response from server (like a job): ', res);
     });
   }
 }

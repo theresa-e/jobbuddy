@@ -1,21 +1,24 @@
 <div class="columns">
   <!-- prompt to show form -->
   <div class="left-col column has-text-centered is-one-third">
-    <p>See a job someone else might be interested in?
-      <br> Add it to the job board ✨ </p>
     <!-- form (hidden until triggered by user) -->
     <div class="add-job-form">
       <br>
-      <p class="is-size-5">Add a new job</p>
+      <p class="form-title">Add a new job</p>
+      <span class="form-subtitle">See a job someone else might be interested in? Share it on the job board ✨
+      </span>
+      <!-- add new job form -->
       <div class="field">
         <form>
           <div class="control">
             <label for="title" class="label">Title: </label>
             <input type="text" class="input" name="title" [(ngModel)]="newJob.title">
+            <span *ngIf="titleError" class="form-error">{{ titleError }}</span>
           </div>
           <div class="control">
             <label for="desc" class="label">Description: </label>
             <input type="text" class="input" name="desc" [(ngModel)]="newJob.desc">
+            <span *ngIf="descError" class="form-error">{{ descError }}</span>
           </div>
           <div class="control">
             <label for="url" class="label">Perks (optional): </label>
@@ -24,6 +27,7 @@
           <div class="control">
             <label for="url" class="label">URL: </label>
             <input type="text" class="input" name="url" [(ngModel)]="newJob.url">
+            <span *ngIf="urlError" class="form-error">{{ urlError }}</span>
           </div>
           <div class="control">
             <a class="button is-fullwidth is-primary" (click)="addJobSubmit()">Submit</a>
@@ -32,24 +36,33 @@
       </div>
     </div>
   </div>
-  <!-- main content -->
+  <!-- right content -->
   <div class="column right-col-jobs">
     <article class="media notification" *ngFor=" let job of allJobs ">
       <figure class="media-left">
         <span class="icon">
-          <a (click)="likeJob(job._id)">
-            <i class="far fa-thumbs-up"></i>
-          </a>
+          <i class="fas fa-angle-double-right"></i>
         </span>
       </figure>
-      <div class="media-content">
-        <div class="content">
-          <h1 class="title is-size-4">{{ job.title }}</h1>
-          <p *ngIf="job.perks" class="is-size-6">Perks: {{ job.perks }}</p>
-          <p class="is-size-6">
-            {{ job.description }}
-          </p>
-        </div>
+      <div class="content">
+        <h1 class="job-title">{{ job.title }}</h1>
+        <span *ngIf="job.perks" class="is-size-6">
+          <span class="desc">Perks:</span> {{ job.perks }}
+        </span>
+        <span class="is-size-6">
+          <span class="desc">Description:</span> {{ job.perks }} {{ job.description }}
+        </span>
+        <span>
+          <span class="desc">Link: </span>
+          <a href="http://{{job.url}}" target="_blank">View posting</a>
+        </span>
+        <span class="bookmark">
+          <a (click)="likeJob(job._id)">
+            <i class="fas fa-bookmark"></i>
+          </a>
+
+          Add to my likes list.
+        </span>
       </div>
     </article>
   </div>

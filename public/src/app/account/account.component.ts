@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -9,7 +10,7 @@ import { HttpService } from '../http.service';
 export class AccountComponent implements OnInit {
 public user: any;
 
-  constructor(private _httpService: HttpService) { }
+  constructor(private _httpService: HttpService, private _router: Router) { }
 
   ngOnInit() {
     this.checkLoggedIn();
