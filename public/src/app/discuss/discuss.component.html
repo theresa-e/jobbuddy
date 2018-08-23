@@ -2,7 +2,7 @@
 <div class="columns main">
   <!-- left table -->
   <div class="column is-one-third left-content">
-    <h1 class="is-size-3">Currently Online</h1>
+    <h1 class="online-title">Currently Online</h1>
     <div class="content">
       <span *ngFor="let user of allActiveUsers">
         <p>
@@ -17,14 +17,13 @@
       <div class="chatroom-content">
         <span *ngFor="let msg of messages">
           <p>
-            <strong>{{ msg.name }}</strong>: {{ msg.content }}</p>
+            <span class="msg-name">{{ msg.name }}</span>: {{ msg.content }}</p>
         </span>
       </div>
     </div>
-    <!-- <div class="field is-grouped"> -->
     <form>
       <p class="control is-expanded">
-        <input class="input message-content" type="text" name="message" [(ngModel)]="message.content">
+        <input class="input message-content is-full-width" type="text" name="message" [(ngModel)]="message.content">
       </p>
       <p class="control">
         <a class="button is-medium is-primary message-content" (click)="sendMessage()">
@@ -32,6 +31,5 @@
         </a>
       </p>
     </form>
-    <!-- </div> -->
   </div>
 </div>

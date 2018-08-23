@@ -92,13 +92,13 @@ module.exports = {
     likeJob: (req, res) => {
         console.log('the id found in URL: ', req.params.id);
         console.log('request.body: ', req.body)
-        Job.findOneAndUpdate({
+        User.findOneAndUpdate({
             _id: req.params.id
         }, {
-            $push: {
-                likes: req.body.user
+            $addToSet: {
+                likes: req.body
             }
-        }, (err, job) => {
+        }, (err, user) => {
             if (err) {
                 console.log('------- Error: Could not save "like" to this job.');
                 res.json({
@@ -109,7 +109,7 @@ module.exports = {
                 console.log('------- Success: Saved user\'s "like" to this job.');
                 res.json({
                     message: "Success",
-                    job: job
+                    user: user
                 });
             }
         });

@@ -34,8 +34,8 @@ export class HttpService {
   }
 
   // Like a job
-  addLike(id: string, user) {
-    return this._http.post('/api/jobs/' + id, user);
+  addLike(userId: string, job) {
+    return this._http.post('/api/jobs/' + userId, job);
   }
 
   // Create a new study group

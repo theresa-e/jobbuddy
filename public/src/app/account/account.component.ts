@@ -30,7 +30,10 @@ public user: any;
   findUser(id: string) {
     let observable = this._httpService.findUser(id);
     observable.subscribe((res) => {
-      this.user = res.user;
+      if (res.message === "Success") {
+        this.user = res.user;
+        console.log(this.user)
+      }
     })
   }
 }

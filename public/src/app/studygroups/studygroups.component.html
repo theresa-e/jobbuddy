@@ -1,30 +1,39 @@
 <div class="columns">
   <!-- left table -->
-  <div class="column is-one-third left-content">
-    <h1 class="left__title">Study Groups</h1>
-    <p>Start a new study group or join an upcoming one by viewing their details 👏</p>
-    <div class="submit">
-      <button class="button" (click)="showForm()">Create new group</button>
+  <div class="column is-one-third left-content ">
+    <div class="top-left-content">
+      <h1 class="left__title">Study Groups</h1>
+      <p>Start a new study group or join an upcoming one by viewing their details 👏</p>
+      <div class="submit">
+        <button class="button" (click)="showForm()">Create new group</button>
+      </div>
     </div>
-    <app-studygroupform *ngIf="showGroupForm" [userInfo]="user" (getGroups)="getAllGroups($event)"></app-studygroupform>
-    <app-groupdetails *ngIf="showGroupDetail" [groupInfo]="groupToShow" [userInfo]="user"></app-groupdetails>
+    <!-- lower left content -->
+    <div class="lower-left-content">
+      <app-studygroupform *ngIf="showGroupForm" [userInfo]="user" (getGroups)="getAllGroups($event)"></app-studygroupform>
+      <app-groupdetails *ngIf="showGroupDetail" [groupInfo]="groupToShow" [userInfo]="user"></app-groupdetails>
+    </div>
   </div>
   <!-- right tables -->
   <div class="column is-two-thirds right-content">
-    <div class="notification" *ngFor="let group of allGroups">
-      <span class="is-size-5">
-        <h3 class="is-size-3">{{ group.name }}</h3>
-        <span class="is-size-7">Posted by
-          <a href="#">
-            {{ group.created_by.firstName }} {{ group.created_by.lastName }}
-          </a>
+    <article class="media notification" *ngFor=" let group of allGroups">
+      <figure class="media-left">
+        <span class="icon">
+          <i class="fas fa-book"></i>
         </span>
-        <p>{{ group.description }}
-        </p>
-        <span class="is-size-7">
-          <button (click)="showGroupDetails(group)" class="button">View Details</button>
+      </figure>
+      <div class="content">
+        <h1 class="group-name">{{ group.name }}</h1>
+        <span>
+          <span class="desc">Meeting Date: </span>
+          <span>{{ group.date }}</span>
         </span>
-      </span>
-    </div>
+        <span>
+          <span class="desc">Location: </span>
+          <span>{{ group.location }}</span>
+        </span>
+        <button (click)="showGroupDetails(group)" class="button">View Details</button>
+      </div>
+    </article>
   </div>
 </div>

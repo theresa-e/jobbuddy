@@ -2,25 +2,39 @@
   <!-- left table -->
   <div class="column is-one-third left-content">
     <h1 class="left__title">{{ user.firstName }}'s Dash</h1>
-    <p>User Info:</p>
-    <p>First Name: {{ user.firstName }}</p>
-    <p>Last Name: {{ user.lastName }}</p>
-    <p>Contact Email: {{ user.email }}</p>
+    <div>
+      <span class="desc">First Name:</span>
+      <span>
+        {{ user.firstName }}
+      </span>
+    </div>
+    <div>
+      <span class="desc">Last Name:</span>
+      <span>
+        {{ user.lastName }}
+      </span>
+    </div>
+    <div>
+      <span class="desc">Contact Email:</span>
+      <span>
+        {{ user.email }}
+      </span>
+    </div>
     <button class="button">Edit Account Info</button>
   </div>
   <!-- right tables -->
   <div class="column is-two-thirds right-content">
     <div class="notification">
-      Posted Jobs (Total: {{user.posted_jobs.length}}):
-      <ul *ngFor="let job of user.posted_jobs">
-        <li>
+      <h1 class="title">Posted Jobs:</h1>
+      <ul>
+        <li *ngFor="let job of user.posted_jobs">
           -
           <a href="#">{{ job.title }}</a>
         </li>
       </ul>
     </div>
     <div class="notification">
-      Liked Jobs (Total: {{ user.likes }}):
+      <h1 class="title">Liked Jobs:</h1>
       <ul *ngFor="let job of user.likes">
         <li>
           -

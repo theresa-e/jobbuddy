@@ -1,23 +1,29 @@
 <div class="content">
-  <p>
-    <strong class="is-size-3">{{ groupInfo.name }}</strong>
-  </p>
-  <p>
-    <strong>Location: </strong> {{ groupInfo.location }}
-  </p>
-  <p>
-    <strong>Date: </strong> {{ groupInfo.date }}
-  </p>
-  <p>
-    <strong>Attendees: </strong> {{ groupInfo.attendees.length }}
-  </p>
-  
-  <p>
-    <strong>Organized by: </strong>
-    {{ groupInfo.created_by.firstName }} {{ groupInfo.created_by.lastName }}
-  </p>
-  <p>
-    <strong>Details: </strong> {{ groupInfo.description }}
-  </p>
+  <div>
+    <h1 class="title">{{ groupInfo.name }}</h1>
+  </div>
+  <div>
+    <span class="desc">Location: </span>
+    <span>{{ groupInfo.location }}</span>
+  </div>
+  <div>
+    <span class="desc">Date: </span>
+    <span>{{ groupInfo.date }}</span>
+  </div>
+  <div>
+    <span class="desc">Attendees: </span> {{ groupInfo.attendees.length }}
+    <ul>
+      <li *ngFor="let user of groupInfo.attendees">{{user.firstName}} {{user.lastName}}</li>
+    </ul>
+  </div>
+  <div>
+    <span class="desc">Organized by: </span>
+    <span>
+      {{ groupInfo.created_by.firstName }} {{ groupInfo.created_by.lastName }}
+    </span>
+  </div>
+  <div>
+    <span class="desc">Details: </span> {{ groupInfo.description }}
+  </div>
   <a class="button" (click)="joinGroup(groupInfo._id)">Join Group</a>
 </div>

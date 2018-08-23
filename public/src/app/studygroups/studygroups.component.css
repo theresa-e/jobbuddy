@@ -2,6 +2,12 @@ body {
   margin: 0;
 }
 
+.hero {
+  font-family: "Cutive";
+  background-image: linear-gradient(-225deg, #50A7C2 33%, #9ed0e0 109%);
+  font-size: 50px;
+}
+
 .title {
   color: #fff;
 }
@@ -15,17 +21,30 @@ body {
   height: 70vh;
 }
 
-.hero {
-  font-family: "Cutive";
-  background-image: linear-gradient(-225deg, #50A7C2 33%, #9ed0e0 109%);
-  font-size: 50px;
+.icon {
+  font-size: 2.5em;
+  margin-top: 10px;
+  color: #097070;
+}
+
+.desc {
+  color: #279090;
+}
+
+.group-name {
+  font-size: 2em;
+  letter-spacing: .05em;
+  font-weight: 400;
+}
+
+.content>* {
+  display: block;
 }
 
 .container {
   margin-top: 10px;
   height: 100%;
   display: flex;
-  flex-direction: c
 }
 
 .right-content {
@@ -44,9 +63,12 @@ body {
 
 .left__title {
   font-size: 2em;
+  letter-spacing: .05em;
+  color: #000;
+  padding: 22px;
+  text-align: center;
 }
 
 .submit {
   text-align: center;
 }
-

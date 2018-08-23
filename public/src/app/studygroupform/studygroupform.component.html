@@ -1,51 +1,52 @@
-<form action="#" id="form-newgrp">
-  <div class="field">
-    <h3 class="is-size-3">Create a new group:</h3>
-    <label class="label">Group Name</label>
-    <div class="control has-icons-left">
-      <input class="input" type="text" placeholder="ex. Javascript review" name="name" [(ngModel)]="studyGroup.name">
-      <span class="icon is-med is-left">
-        <i class="fas fa-user-friends"></i>
-      </span>
+<div class="form">
+  <form id="form-newgrp">
+    <div class="field">
+      <label class="label">Group Name</label>
+      <div class="control has-icons-left">
+        <input class="input" type="text" placeholder="ex. Javascript review" name="name" [(ngModel)]="studyGroup.name">
+        <span class="icon is-med is-left">
+          <i class="fas fa-user-friends"></i>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Date</label>
-    <div class="control has-icons-left has-icons-right">
-      <input class="input" type="date" placeholder="Text input" name="date" [(ngModel)]="studyGroup.date">
-      <span class="icon is-med is-left">
-        <i class="fas fa-calendar" aria-hidden="true"></i>
-      </span>
+    <div class="field">
+      <label class="label">Date</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="date" placeholder="Text input" name="date" [(ngModel)]="studyGroup.date">
+        <span class="icon is-med is-left">
+          <i class="fas fa-calendar" aria-hidden="true"></i>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Location</label>
-    <div class="control has-icons-left has-icons-right">
-      <input class="input" type="text" placeholder="ex. Starbucks" name="location" [(ngModel)]="studyGroup.location">
-      <span class="icon is-med is-left">
-        <i class="fas fa-map-pin"></i>
-      </span>
+    <div class="field">
+      <label class="label">Location</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="text" placeholder="ex. Starbucks" name="location" [(ngModel)]="studyGroup.location">
+        <span class="icon is-med is-left">
+          <i class="fas fa-map-pin"></i>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Time</label>
-    <div class="control has-icons-left has-icons-right">
-      <input class="input" type="text" placeholder="ex. 6pm" name="time" [(ngModel)]="studyGroup.time">
-      <span class="icon is-med is-left">
-        <i class="far fa-clock" aria-hidden="true"></i>
-      </span>
+    <div class="field">
+      <label class="label">Time</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="text" placeholder="ex. 6pm" name="time" [(ngModel)]="studyGroup.time">
+        <span class="icon is-med is-left">
+          <i class="far fa-clock" aria-hidden="true"></i>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Description</label>
-    <div class="control">
-      <input type="text" class="input" name="description" [(ngModel)]="studyGroup.description">
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <input type="text" class="input" name="description" [(ngModel)]="studyGroup.description">
+      </div>
     </div>
-  </div>
-  <div class="field is-grouped">
-    <div class="submit">
-      <button class="button is-link" (click)="submitGroup()">Submit</button>
+    <div class="field is-grouped">
+      <div class="submit">
+        <button class="button is-link" (click)="submitGroup()">Submit</button>
+      </div>
+  
     </div>
-
-  </div>
-</form>
+  </form>
+</div>
