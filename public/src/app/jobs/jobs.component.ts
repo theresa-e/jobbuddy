@@ -49,7 +49,7 @@ export class JobsComponent implements OnInit {
     let observable = this._httpService.getJobs();
     observable.subscribe((res) => {
       console.log('Response from server getting all jobs: ', res);
-      this.allJobs = res.jobs;
+      this.allJobs = res.jobs.reverse();
     });
   }
   

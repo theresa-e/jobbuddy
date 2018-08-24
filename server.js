@@ -50,8 +50,6 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('activeUsers', usersLoggedIn);
     })
     socket.on('chat message', (msg) => {
-        console.log('something came back to the server!')
-        console.log('-----> ', msg);
         var newMsg = new Message({
             name: msg.name,
             content: msg.content
@@ -79,7 +77,7 @@ io.on('connection', (socket) => {
             console.log(userInfo)
             if (usersLoggedIn[i]._id === userInfo._id) {
                 usersLoggedIn.splice(i, 1);
-                io.emit('activeUsers', usersLoggedIn);
+                socket.broadcast.emit('activeUsers', usersLoggedIn);
             }
         }
     });
