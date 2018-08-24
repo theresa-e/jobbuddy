@@ -6,7 +6,7 @@ JobBuddy is a solo project built using MongoDB, Angular, Express.js, Node.js, So
 
 ### Validated Login
 This project is in progress. Below are user stories I'm working on implementing: 
-
+![landing page gif](/gifs/landingpg.gif)
 - [x] Users can login or register for an account
 - [x] Users can post/share jobs for others to see
 - [x] Users are able to favorite/like jobs
@@ -17,4 +17,3 @@ This project is in progress. Below are user stories I'm working on implementing:
 
 ## To Do List:
 - Allow user to edit items they have posted
-- 
