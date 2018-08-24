@@ -14,7 +14,7 @@ JobBuddy is a solo project built using MongoDB, Angular, Express.js, Node.js, So
 ![jobs component](/gifs/discuss.gif)
 
 #### Users are able to create new study groups and sign up as attendees for existing groups. 
-![jobs component](/gifs/discuss.gif)
+![jobs component](/gifs/study-groups.gif)
 
 ## To Do List:
 - Allow user to edit items (study groups and job postings) they have posted.
