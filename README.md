@@ -21,3 +21,7 @@ JobBuddy is a solo project built using MongoDB, Angular, Express.js, Node.js, So
 - Users will be able to edit their account details in their dashboard (add edit component).
 - Study group form will show error messages from backend. 
 - Refactor socket.io code
+- Make fully mobile responsive.
+
+## Resources:
+Landing page illustration from the wonderful [undraw.co](https://undraw.co/)
