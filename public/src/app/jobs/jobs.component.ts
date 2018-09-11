@@ -65,17 +65,19 @@ export class JobsComponent implements OnInit {
     let observable = this._httpService.createJob({ job: newJob, userId: id});
     observable.subscribe((res) => {
       console.log('Response from server (adding job): ', res);
-      if (res.message == "Error") {
-        console.log(res.error);
-        if (res.error.errors.description) {
-          this.descError = res.error.errors.description.message;
-        } if (res.error.errors.title) {
-          this.titleError = res.error.errors.title.message;
-        } if (res.error.errors.url) {
-          this.urlError = res.error.errors.url.message;
+      if (res.message){
+        if (res.message == "Error") {
+          console.log(res.error);
+          if (res.error.errors.description) {
+            this.descError = res.error.errors.description.message;
+          } if (res.error.errors.title) {
+            this.titleError = res.error.errors.title.message;
+          } if (res.error.errors.url) {
+            this.urlError = res.error.errors.url.message;
+          }
+        } else {
+          this.getJobs()
         }
-      } else {
-        this.getJobs()
       }
     });
   }

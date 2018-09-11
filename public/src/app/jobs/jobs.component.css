@@ -77,9 +77,23 @@ p {
     padding: 0 .75rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+  .columns {
+    height: auto;
+    width: 90%;
+    padding: 5px;
+    margin: 5px auto;
+  }
   .columns > * {
     display: flex;
     flex-direction: column;
+    padding: auto;
+  }
+  .right-col-jobs {
+    overflow: visible;
+    padding: 0;
+    border: 1px solid #dddddf;
+    margin: 5px auto;
+    border-radius: 4px;
   }
 }
