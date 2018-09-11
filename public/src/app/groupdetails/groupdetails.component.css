@@ -18,3 +18,29 @@
 ul {
   margin-top: 0;
 }
+
+@media (min-width: 800px) {
+  .columns {
+    height: auto;
+    width: 95%;
+    margin: 5px auto;
+    height: auto;
+    background-color: orange;
+  }
+
+  .column {
+    height: auto;
+    padding: 5px;
+  }
+
+  .chatroom {
+    overflow: visible;
+  }
+  .right-col-jobs {
+    overflow: visible;
+    padding: 0;
+    border: 1px solid #dddddf;
+    margin: 5px auto;
+    border-radius: 4px;
+  }
+}

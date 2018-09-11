@@ -36,7 +36,6 @@ body {
   margin-top: 10px;
   height: 100%;
   display: flex;
-  flex-direction: c
 }
 
 .right-content {
@@ -49,6 +48,7 @@ body {
   border: 1px solid #dddddf;
   border-radius: 4px;
   padding: 1% 5%;
+  
 }
 
 .chatroom {
@@ -74,4 +74,39 @@ body {
 
 .message-content {
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  .column {
+    padding: 0;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .columns {
+    width: 100%;
+    height: 100%;
+    margin: 5px auto;
+    padding: 0;
+  }
+
+  .left-content {
+    height: auto;
+    margin: 5px auto;
+    padding: .5em 1rem;
+    width: 95%;
+  }
+
+  .chatroom {
+    overflow: visible;
+    width: 95%;
+  }
+
+  .right-col-jobs {
+    overflow: visible;
+    border: 1px solid #dddddf;
+    margin: 5px auto;
+    border-radius: 4px;
+    width: 95%;
+  }
 }
