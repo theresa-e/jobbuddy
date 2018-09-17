@@ -1,11 +1,10 @@
 <!-- navbar -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <a [routerLink]="['/main']" class="navbar-item">Browse Postings</a>
-    <a [routerLink]="['/discuss']" class="navbar-item">Discuss</a>
-    <a [routerLink]="['/groups']" class="navbar-item">Study Groups</a>
-    <a [routerLink]="['/account']" class="navbar-item">My Account</a>
-    <a class="navbar-item" href="index.html" *ngIf="isLoggedIn">
-      {{isLoggedIn}}
-      <p>Logout</p>
-    </a>
+  <a class="navbar-item" (click)="logout()">
+    <p>Home</p>
+  </a>
+  <a [routerLink]="['/main']" class="navbar-item">Browse Postings</a>
+  <a [routerLink]="['/discuss']" class="navbar-item">Discuss</a>
+  <a [routerLink]="['/groups']" class="navbar-item">Study Groups</a>
+  <a [routerLink]="['/account']" class="navbar-item">My Account</a>
 </nav>

@@ -1,6 +1,9 @@
 # JobBuddy
 ## Synopsis
-JobBuddy is a solo project built using MongoDB, Angular, Express.js, Node.js, Socket.io, and the Bulma.io framework. It will allow users to create accounts, post jobs to share, organize study groups, and communicate via a real-time chatroom. Users will also able to favorite positions they're interested in and add them to their dashboard.
+JobBuddy allows users to create accounts, share job postings, organize study groups, and communicate in a real-time chatroom. Users are also able to favorite positions they're interested in and view them to their dashboard. JobBuddy is a solo project.
+
+## Technologies Used
+JavaScript, Angular, Express.js, MongoDB, Node.js, Socket.IO, Bulma.io, HTML5. 
 
 ## Features
 #### Login and registration with validations.
@@ -24,4 +27,4 @@ JobBuddy is a solo project built using MongoDB, Angular, Express.js, Node.js, So
 - Make fully mobile responsive.
 
 ## Resources:
-Landing page illustration from the wonderful [undraw.co](https://undraw.co/)
+Landing page illustration from the wonderful [undraw.co](https://undraw.co/).

@@ -39,7 +39,7 @@ export class StudygroupsComponent implements OnInit {
 
   findUser(id: string) {
     let observable = this._httpService.findUser(id);
-    observable.subscribe((res) => {
+    observable.subscribe((res: any) => {
       this.user = res.user;
     })
   }
@@ -53,7 +53,7 @@ export class StudygroupsComponent implements OnInit {
   // Get all study groups
   getAllGroups() {
     let observable = this._httpService.getGroups();
-    observable.subscribe((res) => {
+    observable.subscribe((res: any) => {
       console.log('Response from server: ', res)
       this.allGroups = res.groups.reverse();
     })

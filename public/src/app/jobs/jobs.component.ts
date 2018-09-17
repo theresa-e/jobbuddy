@@ -34,10 +34,11 @@ export class JobsComponent implements OnInit {
     console.log('checking if user is logged in')
     if (!localStorage.getItem('userId')) {
       console.log("---- User is not logged in, redirecting them back to main page."); 
+      this.isLoggedIn = false;
       this._router.navigate(['/index']);
     } else {
       let observable = this._httpService.findUser(localStorage.getItem('userId'));
-      observable.subscribe((res) => {
+      observable.subscribe((res: any) => {
         this.user = res.user;
       });
     }

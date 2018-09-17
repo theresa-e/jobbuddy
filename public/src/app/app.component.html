@@ -6,13 +6,11 @@
     </div>
   </div>
 </section>
-<app-navigation></app-navigation>
+<!-- navbar -->
+<app-navigation *ngIf="isLoggedIn">
+</app-navigation>
+<!-- router outlet -->
 <router-outlet></router-outlet>
 <!-- Footer -->
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p class="theresa">Coded & Built by
-      <a href="http://www.theresa-e.com" target="_blank">Theresa.</a>
-    </p>
-  </div>
 </footer>

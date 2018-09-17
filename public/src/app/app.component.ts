@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   constructor(
     private _httpService: HttpService,
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.checkLoggedIn();
   }
-
 
   // Check if user is logged in 
   checkLoggedIn() {

@@ -18,7 +18,6 @@ body {
 
 .columns {
   padding: 3vh 10vw;
-  height: 70vh;
 }
 
 .icon {
@@ -72,4 +71,26 @@ body {
 
 .submit {
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .columns {
+    height: auto;
+    padding: 0 auto;
+  }
+
+  .group-name {
+    font-size: 1.5em;
+  }
+  .columns>* {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-content {
+    overflow: visible;
+    padding: 0;
+    margin: 10px auto;
+    border-radius: 4px;
+  }
 }

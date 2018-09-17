@@ -29,11 +29,11 @@ public user: any;
   // Find user based on id
   findUser(id: string) {
     let observable = this._httpService.findUser(id);
-    observable.subscribe((res) => {
-      // if (res.message === "Success") {
-      //   this.user = res.user;
-      //   console.log(this.user)
-      // }
+    observable.subscribe((res: any) => {
+      if (res.message === "Success") {
+        this.user = res.user;
+        console.log('------ User found: ', this.user);
+      }
     })
   }
 }
