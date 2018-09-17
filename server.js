@@ -25,14 +25,18 @@ const mongoose = require('mongoose');
 var Message = mongoose.model('Message');
 
 /* ---------- Socket.io ---------- */
+
 const io = require('socket.io')(server);
 const usersLoggedIn = [];
 var userInfo = {}
 
 
 io.on('connection', (socket) => {
-    console.log('user connected')
+    // Send users activeUsers list when they log on.
+    console.log('---- User Connected');
     io.emit('activeUsers', usersLoggedIn);
+
+    // Send them all the existing messages from the db.
     Message.find({}, (err, allMsgs) => {
         if (err) {
             console.log('------ Error: Could not retrieve all messages.');
@@ -42,6 +46,8 @@ io.on('connection', (socket) => {
             io.emit('messages', allMsgs);
         }
     })
+
+    // Add user to activeUsers when they open chatroom.
     socket.on('userInfo', (user) => {
         usersLoggedIn.push(user);
         console.log('Users that are loggedin: ', usersLoggedIn);
@@ -49,6 +55,8 @@ io.on('connection', (socket) => {
         socket.emit('activeUsers', usersLoggedIn);
         socket.broadcast.emit('activeUsers', usersLoggedIn);
     })
+
+    // Save each new message to the db.
     socket.on('chat message', (msg) => {
         var newMsg = new Message({
             name: msg.name,
@@ -71,8 +79,8 @@ io.on('connection', (socket) => {
             }
         })
     });
+    // Remove user from active list when they disconnect. 
     socket.on('disconnect', () => {
-        // Remove user from active list when they disconnect. 
         for (var i = 0; i < usersLoggedIn.length; i++) {
             console.log(userInfo)
             if (usersLoggedIn[i]._id === userInfo._id) {

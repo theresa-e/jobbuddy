@@ -19,12 +19,10 @@ export class GroupdetailsComponent implements OnInit {
   // Get group info based on id
   getGroupInfo(id: string) {
     let observable = this._httpService.findGroup(id);
-    observable.subscribe((res) => {
+    observable.subscribe((res: any) => {
       console.log('Response from server: ', res);
-      if (res) {
-        if (res.message === "Success") {
-          this.groupInfo = res.group;
-        }
+      if (res.message === "Success") {
+        this.groupInfo = res.group;
       }
     });
   }

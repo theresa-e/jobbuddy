@@ -47,7 +47,7 @@ export class JobsComponent implements OnInit {
   getJobs(): void { 
     console.log('Getting jobs from server:');
     let observable = this._httpService.getJobs();
-    observable.subscribe((res) => {
+    observable.subscribe((res: any) => {
       console.log('Response from server getting all jobs: ', res);
       this.allJobs = res.jobs.reverse();
     });
@@ -63,7 +63,7 @@ export class JobsComponent implements OnInit {
   // Process a new job 
   addJob(newJob: any, id: string): void {
     let observable = this._httpService.createJob({ job: newJob, userId: id});
-    observable.subscribe((res) => {
+    observable.subscribe((res: any) => {
       console.log('Response from server (adding job): ', res);
       if (res.message){
         if (res.message == "Error") {
@@ -85,8 +85,8 @@ export class JobsComponent implements OnInit {
   // Like a job
   likeJob(job): void {
     console.log('job: ', job)
-    let observable = this._httpService.addLike(this.user._id, job);
-    observable.subscribe((res) => {
+    let observable = this._httpService.addLike(this.userId, job);
+    observable.subscribe((res: any) => {
       console.log('Response from server (like a job): ', res);
     });
   }
